@@ -1,0 +1,39 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
+import { StrokedCirclePattern } from "@components/StrokedCirclePattern";
+import { CardLanguageCombinations } from "@components/CardLanguageCombinations";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<BaseLayout>
+  <Header />
+
+  <main class="flex flex-col font-inter">
+    <section class="grid justify-center">
+      <StrokedCirclePattern className="col-span-full row-span-full overflow-visible" />
+
+      <div class="flex items-center flex-col py-32 px-22 rounded col-span-full row-span-full">
+        <h1 class="max-w-[15ch] sm:max-w-[18ch] px-5 font-gabarito text-7xl font-900">
+          Service de traduction <span class="text-amber">professionnelle trilingue</span> pour tous
+          vos documents commerciaux ou personnels.
+        </h1>
+      </div>
+    </section>
+
+    <section class="flex flex-col gap-10">
+      <CardLanguageCombinations />
+      <p>
+        Offre d’essai à 5 euros pour vos 250 premiers mots Profitez de cette offre pour faire
+        traduire un document court ou pour tout simplement avoir un aperçu du rendu de mon travail
+        pour un eventuel projet plus long.
+      </p>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,47 @@
+---
+import { LanguageMenu } from "./LanguageMenu";
+import { SwitchColorScheme } from "./SwitchColorScheme";
+
+const LINKS = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/prices", label: "Prices" },
+  { href: "/contact", label: "Contact" },
+];
+---
+
+<header class="px-12 py-6 font-inter border-b sticky top-0 w-full frosted">
+  <div class="flex justify-between items-center gap-x-2xl max-w-[50rem] mx-a">
+    <a href="/" class="text-2xl font-800 font-gabarito text-gray-900 dark:text-gray-100">
+      Brainslate
+    </a>
+
+    <nav class="flex gap-x-xs">
+      {
+        LINKS.map(({ href, label }) => (
+          <a
+            href={href}
+            class="text-gray-900 dark:text-gray-100 hover:text-gray-700 dark:hover:text-gray-300"
+          >
+            {label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="flex gap-x-xs">
+      <SwitchColorScheme client:load />
+      <LanguageMenu client:load />
+    </div>
+  </div>
+</header>
+
+<style scoped>
+  .frosted {
+    background: rgba(241, 245, 249, 0.2);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    border: 1px solid rgba(255, 255, 255, 0.29);
+  }
+</style>

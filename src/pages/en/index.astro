@@ -1,0 +1,13 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import LanguagePicker from "@components/LanguagePicker.astro";
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<BaseLayout>
+  <h1 class="text-amber">{t("nav.home")}</h1>
+  <LanguagePicker />
+</BaseLayout>
