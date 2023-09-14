@@ -1,15 +1,16 @@
-import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
-
 export function LanguageMenu() {
-  return (
-    <DropdownMenu.Root>
-      <DropdownMenu.Trigger className="font-bold">FR</DropdownMenu.Trigger>
+  function onChange(e: React.ChangeEvent<HTMLSelectElement>) {
+    const newLang = e.currentTarget.value;
+    const [_leadingSlash, _oldLang, ...rest] = window.location.pathname.split("/");
+    const slug = rest.join("/");
+    window.location.pathname = `/${newLang}/${slug}`;
+  }
 
-      <DropdownMenu.Content>
-        <DropdownMenu.Item>EN</DropdownMenu.Item>
-        <DropdownMenu.Item>NL</DropdownMenu.Item>
-        <DropdownMenu.Item>FR</DropdownMenu.Item>
-      </DropdownMenu.Content>
-    </DropdownMenu.Root>
+  return (
+    <select className="p-2 border rounded" onChange={onChange}>
+      <option value="nl">NL</option>
+      <option value="en">EN</option>
+      <option value="fr">FR</option>
+    </select>
   );
 }
