@@ -5,43 +5,176 @@ import Footer from "@components/Footer.astro";
 import { getLangFromUrl, useTranslations } from "@i18n/utils";
 import { StrokedCirclePattern } from "@components/StrokedCirclePattern";
 import TableLanguageCombinations from "@components/TableLanguageCombinations.astro";
+import { ExternalLinkIcon } from "@components/icons/ExternalLinkIcon";
+import localLogoMemoQ from "../../images/logo-q.svg";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+const href =
+  "https://www.agefiph.fr/employeur#linclusion-de-personnes-handicapees-une-opportunite-rh-a-saisir";
 ---
 
 <BaseLayout>
   <Header />
 
   <main class="flex flex-col font-inter">
-    <section class="grid justify-center">
-      <StrokedCirclePattern className="col-span-full row-span-full overflow-visible" />
-
-      <div class="flex items-center flex-col py-32 px-22 rounded col-span-full row-span-full">
-        <h1 class="max-w-[15ch] sm:max-w-[18ch] px-5 font-gabarito text-7xl font-900">
+    <section class="grid border-b">
+      <StrokedCirclePattern className="col-span-full row-span-full" />
+      <div class="flex items-center flex-col py-24 px-22 rounded col-span-full row-span-full">
+        <h1
+          class="max-w-[15ch] sm:max-w-[20ch] px-5 font-gabarito text-7xl font-900 sm:text-center"
+        >
           Service de traduction <span class="text-amber">professionnelle trilingue</span> pour tous
           vos documents commerciaux ou personnels.
         </h1>
       </div>
     </section>
 
-    <section class="flex flex-col gap-10" id="about">
-      <article class="mx-a px-10 py-12 border rounded max-w-[500px]">
+    <section class="flex flex-col gap-10">
+      <article class="mx-a px-10 py-12 max-w-[500px]">
         <h2 class="font-gabarito text-4xl font-800 mbe-8">
           Translate between 3 language combinations.
         </h2>
         <TableLanguageCombinations />
       </article>
 
-      <div class="mx-a">
-        <p class="max-w-xl">
-          Offre d’essai à 5 euros pour vos 250 premiers mots Profitez de cette offre pour faire
+      <article class="mx-a max-w-2xl">
+        <p class="mb-4">
+          Offre d'essai à 5 euros pour vos 250 premiers mots Profitez de cette offre pour faire
           traduire un document court ou pour tout simplement avoir un aperçu du rendu de mon travail
           pour un eventuel projet plus long.
         </p>
 
-        <a href="#contact">En savoir plus</a>
+        <a href="#contact" class="border px-2 py-2 rounded-sm text-sm font-600"> En savoir plus</a>
+      </article>
+    </section>
+
+    <article class="max-w-2xl mx-a">
+      <h2 class="font-gabarito font-800 text-2xl">
+        L'objectif de mes traductions est qu'elles soient fluides et fidèles
+      </h2>
+      <p>
+        En m'appliquant à déterminer le terme le plus précis et approprié dans chaque contexte, mon
+        intention est que la traduction conserve le même impact que le texte original.
+      </p>
+    </article>
+
+    <article class="max-w-2xl mx-a">
+      <h2 class="font-gabarito font-800 text-2xl">
+        Domaines de prédilection, basés sur mon expérience personnelle et professionnelle
+      </h2>
+      <ul>
+        <li>Commerce international, Import-export, Administration des ventes</li>
+        <li>Transport, Logistique, documents de transport</li>
+        <li>Santé, Médecine, Anatomie, Biologie, Maladies, Maternité, Pédiatrie</li>
+        <li>Tourisme, Hôtellerie, Accueil</li>
+        <li>Correspondances professionnelles et personnelles, lettres administratives, Cvs</li>
+      </ul>
+
+      <p>
+        Avez-vous des doutes sur la faisabilité de la traduction que vous souhaitez demander ?
+        <span class="font-500">
+          (poésie, registre soutenu, symbolique riche du texte, termes spécifiques…)
+        </span> N'hésitez pas à
+        <a href="#contact" class="text-blue">prendre contact ou demander un devis</a>.
+      </p>
+    </article>
+
+    <article class="max-w-2xl mx-a">
+      <h2 class="inline-flex text-24px font-gabarito gap-x-2">
+        <img src={localLogoMemoQ.src} alt="" width={24} height={24} />
+         MEMO Q TRANSLATOR PRO
+      </h2>
+      <p>
+        J'utilise l'environnement de traduction assisté par ordinateur MEMO Q PRO, outil qui me
+        permets de travailler à partir de nombreux formats de documents et compatible avec la
+        plupart des autres outils de traduction (tels que
+        <a
+          href="https://www.trados.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center underline gap-x-1 text-blue"
+        >
+          SDL TRADOS <span><ExternalLinkIcon aria-hidden className="stroke-current" /></span>
+        </a> ou
+        <a
+          href="https://www.trados.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center underline gap-x-1 text-blue"
+        >
+          WORDFAST <span><ExternalLinkIcon aria-hidden className="stroke-current" /></span>
+        </a> ).
+      </p>
+    </article>
+
+    <article class="max-w-2xl mx-a">
+      <h2 class="font-gabarito text-4xl font-800">MES DISPONIBILITÉS</h2>
+      <p>➡️ Réponse devis sous les 6h garantie (de 8h à 18h en semaine)</p>
+      <p>
+        ➡️ Livraison express en 72 h jusqu'à 1600 mots (sous réserve de disponibilité/hors offre
+        d'essai)
+      </p>
+    </article>
+
+    <section id="prices" class="flex flex-col max-w-2xl ma">
+      <h2 class="font-gabarito font-800 text-2xl">Tarifs</h2>
+
+      <p class="mb-2">
+        La tarification dépend du niveau de technicité et de la complexité du texte ainsi que de la
+        combinaison linguistique. Les traductions sont facturées au mot
+        <span class="whitespace-nowrap">(0,10 à 0,20 euros/mot)</span>, la facturation est ensuite
+        ajustée en fonction du temps de travail et du délai de livraison demandé. N'hésitez pas à me
+        contacter pour obtenir un devis ou vérifier la faisabilité du projet !
+      </p>
+
+      <p class="mb-2">
+        Je suis travailleur indépendant handicapé (TIH): Des dispositifs facilitant l'emploi des
+        personnes en situation de handicap existent pour les entreprises.
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center underline gap-x-1"
+        >
+          Plus d'informations
+          <span><ExternalLinkIcon aria-hidden /></span>
+        </a>
+      </p>
+    </section>
+
+    <section id="about" class="max-w-2xl mx-a grid gap-y-2 mb-4">
+      <h2 class="font-gabarito font-800 text-2xl">À propos du traducteur:</h2>
+
+      <div>
+        <p>Freya PALSMA</p>
+        <p>Traducteur professionnel indépendant handicapé (TIH)</p>
       </div>
+
+      <p>
+        Née et éduquée en France mais d'origine néerlandaise, j'ai appris à traduire en apprenant à
+        parler; le français à l'école, le néerlandais à la maison. J'ai ensuite eu l'opportunité
+        d'apprendre l'anglais couramment en suivant une année de ma scolarité en Angleterre et en
+        poursuivant cet apprentissage en section internationale au collège jusqu'à l'obtention du
+        Baccalauréat (OIB/BFI) dans un lycée international en France. J'ai pu depuis pratiquer et
+        enrichir ces langues professionnellement en entreprise ; j'ai travaillé pendant trois années
+        dans l'hôtellerie et deux années pour un prestataire de logistique international, avec comme
+        contact quotidien les collaborateurs et clients du BeNeLux.
+      </p>
+
+      <p>
+        Ayant déclaré une maladie neurologique rare à l'age adulte, le manque d'informations et de
+        recherches disponibles en français sur cette pathologie m'a fait découvrir qu'avoir accès à
+        la traduction ne permet pas seulement la communication entre deux communautés linguistiques
+        ou le commerce international, mais facilite surtout le partage d'informations et
+        l'enrichissement de sa culture individuelle. Traduire est devenu pour moi un réflexe, et
+        pouvoir aujourd'hui vous proposer ce service représente une grande satisfaction.
+      </p>
+    </section>
+
+    <section id="contact">
+      <h2 class="font-gabarito font-800 text-2xl">Contact</h2>
     </section>
   </main>
 

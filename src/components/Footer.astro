@@ -1,7 +1,12 @@
 ---
-
+const currentYear = new Date().getFullYear();
 ---
 
-<footer class="px-10 py-6 border-t">
-  <ul></ul>
+<footer class="px-10 py-6 border-t flex items-center justify-around">
+  <p class="text-sm text-gray-600">
+    &copy; {currentYear},
+    <span class="font-gabarito">Brainslate</span>
+  </p>
+
+  <a href="" class="text-xs font-300 underline">Conditions générales</a>
 </footer>
