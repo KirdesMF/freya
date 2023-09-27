@@ -7,69 +7,56 @@ import { StrokedCirclePattern } from "@components/StrokedCirclePattern";
 import TableLanguageCombinations from "@components/TableLanguageCombinations.astro";
 import { ExternalLinkIcon } from "@components/icons/ExternalLinkIcon";
 import localLogoMemoQ from "../../images/logo-q.svg";
+import sanitizeHTML from "sanitize-html";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-
-const href =
-  "https://www.agefiph.fr/employeur#linclusion-de-personnes-handicapees-une-opportunite-rh-a-saisir";
 ---
 
 <BaseLayout>
   <Header />
 
   <main class="flex flex-col font-inter">
-    <section class="grid border-b">
+    <section id="hero" class="grid border-b h-40rem">
       <StrokedCirclePattern className="col-span-full row-span-full" />
-      <div class="flex items-center flex-col py-24 px-22 rounded col-span-full row-span-full">
+      <div class="flex flex-col items-center justify-center col-span-full row-span-full">
         <h1
-          class="max-w-[15ch] sm:max-w-[20ch] px-5 font-gabarito text-7xl font-900 sm:text-center"
-        >
-          Service de traduction <span class="text-amber">professionnelle trilingue</span> pour tous
-          vos documents commerciaux ou personnels.
-        </h1>
+          class="max-w-[15ch] sm:max-w-[23ch] px-5 font-gabarito text-7xl font-900 sm:text-center [&>span]:text-red"
+          set:html={sanitizeHTML(t("hero.title"))}
+        />
       </div>
     </section>
 
-    <section class="flex flex-col gap-10">
+    <section id="presentation" class="flex flex-col gap-10">
       <article class="mx-a px-10 py-12 max-w-[500px]">
-        <h2 class="font-gabarito text-4xl font-800 mbe-8">
-          Translate between 3 language combinations.
-        </h2>
+        <h2 class="font-gabarito text-4xl font-800 mbe-8">{t("presentation.title")}</h2>
         <TableLanguageCombinations />
+      </article>
+
+      <article class="max-w-2xl mx-a">
+        <h2 class="font-gabarito font-800 text-2xl">{t("objective.title")}</h2>
+        <p>{t("objective.description")}</p>
       </article>
 
       <article class="mx-a max-w-2xl">
         <p class="mb-4">
-          Offre d'essai à 5 euros pour vos 250 premiers mots Profitez de cette offre pour faire
-          traduire un document court ou pour tout simplement avoir un aperçu du rendu de mon travail
-          pour un eventuel projet plus long.
+          {t("trial.description")}
         </p>
 
-        <a href="#contact" class="border px-2 py-2 rounded-sm text-sm font-600"> En savoir plus</a>
+        <a href="#contact" class="border px-2 py-2 rounded-sm text-sm font-600">
+          {t("trial.cta")}
+        </a>
       </article>
     </section>
 
     <article class="max-w-2xl mx-a">
-      <h2 class="font-gabarito font-800 text-2xl">
-        L'objectif de mes traductions est qu'elles soient fluides et fidèles
-      </h2>
-      <p>
-        En m'appliquant à déterminer le terme le plus précis et approprié dans chaque contexte, mon
-        intention est que la traduction conserve le même impact que le texte original.
-      </p>
-    </article>
-
-    <article class="max-w-2xl mx-a">
-      <h2 class="font-gabarito font-800 text-2xl">
-        Domaines de prédilection, basés sur mon expérience personnelle et professionnelle
-      </h2>
+      <h2 class="font-gabarito font-800 text-2xl">{t("domaine.title")}</h2>
       <ul>
-        <li>Commerce international, Import-export, Administration des ventes</li>
-        <li>Transport, Logistique, documents de transport</li>
-        <li>Santé, Médecine, Anatomie, Biologie, Maladies, Maternité, Pédiatrie</li>
-        <li>Tourisme, Hôtellerie, Accueil</li>
-        <li>Correspondances professionnelles et personnelles, lettres administratives, Cvs</li>
+        <li>{t("domaine.list.1")}</li>
+        <li>{t("domaine.list.2")}</li>
+        <li>{t("domaine.list.3")}</li>
+        <li>{t("domaine.list.4")}</li>
+        <li>{t("domaine.list.5")}</li>
       </ul>
 
       <p>
@@ -133,7 +120,7 @@ const href =
         Je suis travailleur indépendant handicapé (TIH): Des dispositifs facilitant l'emploi des
         personnes en situation de handicap existent pour les entreprises.
         <a
-          href={href}
+          href="https://www.agefiph.fr/employeur#linclusion-de-personnes-handicapees-une-opportunite-rh-a-saisir"
           target="_blank"
           rel="noopener noreferrer"
           class="inline-flex items-center underline gap-x-1"
@@ -173,7 +160,7 @@ const href =
       </p>
     </section>
 
-    <section id="contact">
+    <section id="contact" class="max-w-2xl mx-a grid gap-y-2 mb-4">
       <h2 class="font-gabarito font-800 text-2xl">Contact</h2>
     </section>
   </main>

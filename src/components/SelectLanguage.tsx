@@ -2,12 +2,14 @@ import * as Select from "@radix-ui/react-select";
 import { ChevronDownIcon } from "./icons/ChevronDownIcon.tsx";
 import { TranslateIcon } from "./icons/TranslateIcon.tsx";
 import { CheckIcon } from "./icons/CheckIcon.tsx";
+import { getLangFromUrl } from "@i18n/utils.ts";
 
 const LANGUAGES = [
   { code: "fr", name: "Français" },
   { code: "en", name: "English" },
   { code: "nl", name: "Nederlands" },
 ];
+const lang = getLangFromUrl(new URL(window.location.href));
 
 const defaultLang = "fr" as const;
 const currentLang = LANGUAGES.find((lang) => lang.code === defaultLang)?.name;
@@ -20,7 +22,7 @@ export function SelectLanguage() {
   }
 
   return (
-    <Select.Root value={defaultLang} onValueChange={onChange}>
+    <Select.Root value={lang} onValueChange={onChange}>
       <Select.Trigger className="flex gap-x-2 items-center justify-center border px-1 py-1 rounded text-sm outline-none">
         <Select.Icon>
           <TranslateIcon className="w-[18px] h-[18px]" />

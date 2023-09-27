@@ -22,18 +22,18 @@ export function StrokedCirclePattern(props: { className?: string }) {
         stroke="url(#gradient)"
         strokeWidth={strokeWidth}
         strokeDasharray="5 10 25 5 10"
-      />
+      />,
     );
   }
 
   return (
     <svg
-      viewBox={`0 0 ${width} ${height}`}
-      width={"100%"}
-      height={"100%"}
       {...props}
+      viewBox={`0 0 ${width} ${height}`}
       aria-hidden
       preserveAspectRatio="xMidYMid slice"
+      width={"100%"}
+      height={"100%"}
     >
       <defs>
         <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
