@@ -59,13 +59,7 @@ const t = useTranslations(lang);
         <li>{t("domaine.list.5")}</li>
       </ul>
 
-      <p>
-        Avez-vous des doutes sur la faisabilité de la traduction que vous souhaitez demander ?
-        <span class="font-500">
-          (poésie, registre soutenu, symbolique riche du texte, termes spécifiques…)
-        </span> N'hésitez pas à
-        <a href="#contact" class="text-blue">prendre contact ou demander un devis</a>.
-      </p>
+      <p set:html={sanitizeHTML(t("feasibility.body"))} class="[&>a]:text-blue [&>a]:underline" />
     </article>
 
     <article class="max-w-2xl mx-a">
@@ -74,17 +68,17 @@ const t = useTranslations(lang);
          MEMO Q TRANSLATOR PRO
       </h2>
       <p>
-        J'utilise l'environnement de traduction assisté par ordinateur MEMO Q PRO, outil qui me
-        permets de travailler à partir de nombreux formats de documents et compatible avec la
-        plupart des autres outils de traduction (tels que
-        <a
+        {t("memoq.body")}
+
+         (<a
           href="https://www.trados.com/"
           target="_blank"
           rel="noopener noreferrer"
           class="inline-flex items-center underline gap-x-1 text-blue"
         >
           SDL TRADOS <span><ExternalLinkIcon aria-hidden className="stroke-current" /></span>
-        </a> ou
+        </a>
+        {" "}{t("general.or")}{" "}
         <a
           href="https://www.trados.com/"
           target="_blank"
@@ -92,76 +86,48 @@ const t = useTranslations(lang);
           class="inline-flex items-center underline gap-x-1 text-blue"
         >
           WORDFAST <span><ExternalLinkIcon aria-hidden className="stroke-current" /></span>
-        </a> ).
+        </a>).
       </p>
     </article>
 
     <article class="max-w-2xl mx-a">
-      <h2 class="font-gabarito text-4xl font-800">MES DISPONIBILITÉS</h2>
-      <p>➡️ Réponse devis sous les 6h garantie (de 8h à 18h en semaine)</p>
-      <p>
-        ➡️ Livraison express en 72 h jusqu'à 1600 mots (sous réserve de disponibilité/hors offre
-        d'essai)
-      </p>
+      <h2 class="font-gabarito text-4xl font-800">{t("disposability.title")}</h2>
+      <p>➡️ {t("disposability.answer")}</p>
+      <p>➡️ {t("disposability.delivery")}</p>
     </article>
 
     <section id="prices" class="flex flex-col max-w-2xl ma">
-      <h2 class="font-gabarito font-800 text-2xl">Tarifs</h2>
+      <h2 class="font-gabarito font-800 text-2xl">{t("prices.title")}</h2>
+      <p class="mb-2">{t("prices.description")}</p>
 
       <p class="mb-2">
-        La tarification dépend du niveau de technicité et de la complexité du texte ainsi que de la
-        combinaison linguistique. Les traductions sont facturées au mot
-        <span class="whitespace-nowrap">(0,10 à 0,20 euros/mot)</span>, la facturation est ensuite
-        ajustée en fonction du temps de travail et du délai de livraison demandé. N'hésitez pas à me
-        contacter pour obtenir un devis ou vérifier la faisabilité du projet !
-      </p>
-
-      <p class="mb-2">
-        Je suis travailleur indépendant handicapé (TIH): Des dispositifs facilitant l'emploi des
-        personnes en situation de handicap existent pour les entreprises.
+        {t("prices.tih")}
         <a
           href="https://www.agefiph.fr/employeur#linclusion-de-personnes-handicapees-une-opportunite-rh-a-saisir"
           target="_blank"
           rel="noopener noreferrer"
           class="inline-flex items-center underline gap-x-1"
         >
-          Plus d'informations
+          {t("prices.link")}
           <span><ExternalLinkIcon aria-hidden /></span>
         </a>
       </p>
     </section>
 
     <section id="about" class="max-w-2xl mx-a grid gap-y-2 mb-4">
-      <h2 class="font-gabarito font-800 text-2xl">À propos du traducteur:</h2>
+      <h2 class="font-gabarito font-800 text-2xl">{t("about.title")}</h2>
 
       <div>
         <p>Freya PALSMA</p>
-        <p>Traducteur professionnel indépendant handicapé (TIH)</p>
+        <p>{t("about.job")}</p>
       </div>
 
-      <p>
-        Née et éduquée en France mais d'origine néerlandaise, j'ai appris à traduire en apprenant à
-        parler; le français à l'école, le néerlandais à la maison. J'ai ensuite eu l'opportunité
-        d'apprendre l'anglais couramment en suivant une année de ma scolarité en Angleterre et en
-        poursuivant cet apprentissage en section internationale au collège jusqu'à l'obtention du
-        Baccalauréat (OIB/BFI) dans un lycée international en France. J'ai pu depuis pratiquer et
-        enrichir ces langues professionnellement en entreprise ; j'ai travaillé pendant trois années
-        dans l'hôtellerie et deux années pour un prestataire de logistique international, avec comme
-        contact quotidien les collaborateurs et clients du BeNeLux.
-      </p>
-
-      <p>
-        Ayant déclaré une maladie neurologique rare à l'age adulte, le manque d'informations et de
-        recherches disponibles en français sur cette pathologie m'a fait découvrir qu'avoir accès à
-        la traduction ne permet pas seulement la communication entre deux communautés linguistiques
-        ou le commerce international, mais facilite surtout le partage d'informations et
-        l'enrichissement de sa culture individuelle. Traduire est devenu pour moi un réflexe, et
-        pouvoir aujourd'hui vous proposer ce service représente une grande satisfaction.
-      </p>
+      <p>{t("about.description.1")}</p>
+      <p>{t("about.description.2")}</p>
     </section>
 
     <section id="contact" class="max-w-2xl mx-a grid gap-y-2 mb-4">
-      <h2 class="font-gabarito font-800 text-2xl">Contact</h2>
+      <h2 class="font-gabarito font-800 text-2xl">{t("nav.contact")}</h2>
     </section>
   </main>
 
