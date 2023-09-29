@@ -1,12 +1,17 @@
 ---
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
 import { SelectLanguage } from "./SelectLanguage";
 import { SwitchColorScheme } from "./SwitchColorScheme";
+import { MenuBurgerIcon } from "./icons/MenuBurgerIcon";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const LINKS = [
-  { href: "/", label: "Home" },
-  { href: "#about", label: "About" },
-  { href: "/prices", label: "Prices" },
-  { href: "/contact", label: "Contact" },
+  { href: "/", label: t("nav.home") },
+  { href: "#about", label: t("nav.about") },
+  { href: "/prices", label: t("nav.prices") },
+  { href: "/contact", label: t("nav.contact") },
 ];
 ---
 
@@ -16,7 +21,9 @@ const LINKS = [
       Brainslate
     </a>
 
-    <nav class="flex gap-x-xs">
+    <!-- <button type="button" class="md:hidden"> <MenuBurgerIcon /></button> -->
+
+    <nav class="hidden md:flex gap-x-xs">
       {
         LINKS.map(({ href, label }) => (
           <a
@@ -29,7 +36,7 @@ const LINKS = [
       }
     </nav>
 
-    <div class="flex gap-x-xs">
+    <div class="hidden md:flex gap-x-xs">
       <SwitchColorScheme client:load />
       <SelectLanguage client:only />
     </div>

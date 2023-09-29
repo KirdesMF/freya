@@ -10,8 +10,9 @@ export const ui = {
   fr: {
     "general.or": "ou",
     "nav.home": "Accueil",
+    "nav.about": "À propos",
+    "nav.prices": "Tarifs",
     "nav.contact": "Contact",
-    "nav.twitter": "Twitter",
     "hero.title":
       "Service de traduction <span>professionnelle trilingue</span> pour tous vos documents commerciaux ou personnels.",
     "presentation.title": "Combinaisons linguistiques",
@@ -53,8 +54,9 @@ export const ui = {
   en: {
     "general.or": "or",
     "nav.home": "Home",
+    "nav.about": "About",
+    "nav.prices": "Prices",
     "nav.contact": "Contact",
-    "nav.twitter": "Twitter",
     "hero.title":
       "Professional <span>trilingual translation</span> service for all your business or personal documents.",
     "presentation.title": "Linguistic combinations",
@@ -96,8 +98,9 @@ export const ui = {
   nl: {
     "general.or": "of",
     "nav.home": "Thuis",
+    "nav.about": "Over",
+    "nav.prices": "Prijzen",
     "nav.contact": "Contact",
-    "nav.twitter": "Twitter",
     "hero.title":
       "Professionele <span>drietalige vertaaldienst</span> voor al uw zakelijke of persoonlijke documenten.",
     "presentation.title": "Linguïstische combinaties",

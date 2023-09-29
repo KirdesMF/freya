@@ -8,6 +8,7 @@ import TableLanguageCombinations from "@components/TableLanguageCombinations.ast
 import { ExternalLinkIcon } from "@components/icons/ExternalLinkIcon";
 import localLogoMemoQ from "../../images/logo-q.svg";
 import sanitizeHTML from "sanitize-html";
+import CopyButton from "@components/CopyButton.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -16,7 +17,7 @@ const t = useTranslations(lang);
 <BaseLayout>
   <Header />
 
-  <main class="flex flex-col font-inter">
+  <main class="flex flex-col font-inter gap-10">
     <section id="hero" class="grid border-b h-40rem">
       <StrokedCirclePattern className="col-span-full row-span-full" />
       <div class="flex flex-col items-center justify-center col-span-full row-span-full">
@@ -91,7 +92,7 @@ const t = useTranslations(lang);
     </article>
 
     <article class="max-w-2xl mx-a">
-      <h2 class="font-gabarito text-4xl font-800">{t("disposability.title")}</h2>
+      <h2 class="font-gabarito text-2xl font-800">{t("disposability.title")}</h2>
       <p>➡️ {t("disposability.answer")}</p>
       <p>➡️ {t("disposability.delivery")}</p>
     </article>
@@ -128,6 +129,11 @@ const t = useTranslations(lang);
 
     <section id="contact" class="max-w-2xl mx-a grid gap-y-2 mb-4">
       <h2 class="font-gabarito font-800 text-2xl">{t("nav.contact")}</h2>
+      <div>
+        <CopyButton content="freyapalsma@gmail.com" client:only>Copy</CopyButton>
+        <button type="button">freyapalsma@gmail.com</button>
+        <a href="#" target="_blank" rel="noopener noreferrer">Linkedin</a>
+      </div>
     </section>
   </main>
 

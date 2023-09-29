@@ -1,0 +1,23 @@
+---
+type Props = {
+  content: string;
+};
+
+const { content } = Astro.props;
+
+const btn = document.querySelector("button");
+
+async function copyText(content: string) {
+  try {
+    await navigator.clipboard.writeText(content);
+  } catch (err) {
+    console.error("Failed to copy: ", err);
+  }
+}
+
+btn?.addEventListener("click", () => copyText(content));
+---
+
+<button id="copy-btn" type="button">
+  <slot />
+</button>
