@@ -9,6 +9,7 @@
     "astro": "bunx --bun astro"
   },
   "dependencies": {
+    "@astrojs/mdx": "^1.1.2",
     "@astrojs/react": "^3.0.3",
     "@radix-ui/react-select": "1.2.2",
     "@radix-ui/react-tooltip": "^1.0.6",
@@ -21,6 +22,7 @@
   },
   "devDependencies": {
     "@types/sanitize-html": "^2.9.3",
+    "@unocss/preset-typography": "^0.56.5",
     "@unocss/reset": "^0.56.5",
     "bun-types": "^1.0.6",
     "prettier": "^3.0.3",

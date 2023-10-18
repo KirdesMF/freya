@@ -1,5 +1,8 @@
 ---
+import { getLangFromUrl, useTranslatedPath } from "@i18n/utils";
 const currentYear = new Date().getFullYear();
+const lang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(lang);
 ---
 
 <footer class="px-10 py-6 border-t flex items-center justify-around">
@@ -8,5 +11,5 @@ const currentYear = new Date().getFullYear();
     <span class="font-gabarito">Brainslate</span>
   </p>
 
-  <a href="/conditions" class="text-xs font-300 underline">Conditions générales</a>
+  <a href={translatePath("/conditions")} class="text-xs font-300 underline">Conditions générales</a>
 </footer>

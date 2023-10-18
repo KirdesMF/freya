@@ -1,0 +1,13 @@
+---
+export type Props = {
+  as?: "h1" | "h2" | "h3";
+  content: string;
+};
+const { as = "h1", content, ...props } = Astro.props;
+
+const Element = as;
+---
+
+<Element {...props} class="prose prose-coolgray mx-a underline mb-4 mt-8">
+  {content}
+</Element>

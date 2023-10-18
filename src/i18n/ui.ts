@@ -1,12 +1,11 @@
 export const showDefaultLang = false;
+export const defaultLang = "fr";
 
 export const languages = {
   en: "English",
   fr: "Français",
   nl: "Dutch",
 };
-
-export const defaultLang = "fr";
 
 export const ui = {
   fr: {

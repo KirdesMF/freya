@@ -1,4 +1,6 @@
 ---
+import Footer from "@components/Footer.astro";
+import Header from "@components/Header.astro";
 import { getLangFromUrl } from "@i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
@@ -9,7 +11,6 @@ import "@styles/fonts.css";
 <html lang={lang}>
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta
       name="description"
@@ -32,12 +33,18 @@ import "@styles/fonts.css";
     <meta name="og:url" content="https://brainslate.fr" />
     <meta name="og:type" content="website" />
 
+    <link rel="preload" href="/fonts/Gabarito[wght].ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="/fonts/Inter.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
     <title>Brainslate - Freelance Translator Services</title>
   </head>
 
   <body
     class="font-sans dark:bg-dark bg-bluegray-1 text-gray-8 dark:text-white transition-color duration-500 font-inter"
   >
+    <Header />
     <slot />
+    <Footer />
   </body>
 </html>

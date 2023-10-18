@@ -1,7 +1,5 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import Header from "@components/Header.astro";
-import Footer from "@components/Footer.astro";
 import { getLangFromUrl, useTranslations } from "@i18n/utils";
 import { StrokedCirclePattern } from "@components/StrokedCirclePattern";
 import TableLanguageCombinations from "@components/TableLanguageCombinations.astro";
@@ -17,8 +15,6 @@ const t = useTranslations(lang);
 ---
 
 <BaseLayout>
-  <Header />
-
   <main class="flex flex-col font-inter gap-10 mbe-10">
     <section id="hero" class="grid border-b h-40rem">
       <StrokedCirclePattern className="col-span-full row-span-full" />
@@ -155,6 +151,4 @@ const t = useTranslations(lang);
       </div>
     </section>
   </main>
-
-  <Footer />
 </BaseLayout>

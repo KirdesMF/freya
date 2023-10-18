@@ -1,0 +1,16 @@
+---
+const props = Astro.props;
+---
+
+<li {...props} class="prose prose-gray list-disc mbe-2">
+  <slot />
+</li>
+
+<style is:global>
+  ul {
+    margin: 0 auto;
+    max-width: 65ch;
+    padding-inline-start: 40px;
+    margin-block-end: 0.7rem;
+  }
+</style>
