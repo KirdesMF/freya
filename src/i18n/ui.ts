@@ -1,3 +1,5 @@
+export const showDefaultLang = false;
+
 export const languages = {
   en: "English",
   fr: "Français",

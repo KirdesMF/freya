@@ -1,11 +1,12 @@
 ---
-import { getLangFromUrl, useTranslations } from "@i18n/utils";
+import { getLangFromUrl, useTranslatedPath, useTranslations } from "@i18n/utils";
 import { SelectLanguage } from "./SelectLanguage";
 import { SwitchColorScheme } from "./SwitchColorScheme";
 import { MenuBurgerIcon } from "./icons/MenuBurgerIcon";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
 
 const LINKS = [
   { href: "/", label: t("nav.home") },
@@ -27,7 +28,7 @@ const LINKS = [
       {
         LINKS.map(({ href, label }) => (
           <a
-            href={href}
+            href={translatePath(href)}
             class="text-gray-900 dark:text-gray-100 hover:text-gray-700 dark:hover:text-gray-300"
           >
             {label}

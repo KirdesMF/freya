@@ -2,7 +2,7 @@ import * as Select from "@radix-ui/react-select";
 import { ChevronDownIcon } from "./icons/ChevronDownIcon.tsx";
 import { TranslateIcon } from "./icons/TranslateIcon.tsx";
 import { CheckIcon } from "./icons/CheckIcon.tsx";
-import { getLangFromUrl } from "@i18n/utils.ts";
+import { getLangFromUrl, useTranslatedPath } from "@i18n/utils.ts";
 
 const LANGUAGES = [
   { code: "fr", name: "Français" },
@@ -10,6 +10,7 @@ const LANGUAGES = [
   { code: "nl", name: "Nederlands" },
 ];
 const lang = getLangFromUrl(new URL(window.location.href));
+const translatePath = useTranslatedPath(lang);
 
 const defaultLang = "fr" as const;
 const currentLang = LANGUAGES.find((lang) => lang.code === defaultLang)?.name;
@@ -18,7 +19,7 @@ export function SelectLanguage() {
   function onChange(lang: string) {
     const [_leadingSlash, _oldLang, ...rest] = window.location.pathname.split("/");
     const slug = rest.join("/");
-    window.location.pathname = `/${lang}/${slug}`;
+    window.location.pathname = translatePath(slug, lang);
   }
 
   return (
