@@ -1,23 +1,27 @@
 ---
 type Props = {
   content: string;
+  className: string;
 };
 
-const { content } = Astro.props;
-
-const btn = document.querySelector("button");
-
-async function copyText(content: string) {
-  try {
-    await navigator.clipboard.writeText(content);
-  } catch (err) {
-    console.error("Failed to copy: ", err);
-  }
-}
-
-btn?.addEventListener("click", () => copyText(content));
+const { content, className } = Astro.props;
 ---
 
-<button id="copy-btn" type="button">
+<button class={className} id="copy-btn" type="button" data-copy={content}>
   <slot />
 </button>
+
+<script>
+  const btn = document.getElementById("copy-btn");
+
+  async function copyText() {
+    try {
+      await navigator.clipboard.writeText(btn?.dataset.copy!);
+      console.log("Copied to clipboard");
+    } catch (err) {
+      console.error("Failed to copy: ", err);
+    }
+  }
+
+  btn?.addEventListener("click", copyText);
+</script>

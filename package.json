@@ -9,22 +9,22 @@
     "astro": "bunx --bun astro"
   },
   "dependencies": {
-    "@astrojs/react": "^3.0.0",
-    "@radix-ui/react-select": "^1.2.2",
+    "@astrojs/react": "^3.0.3",
+    "@radix-ui/react-select": "^2.0.0",
     "@radix-ui/react-tooltip": "^1.0.6",
-    "@types/react": "^18.2.21",
-    "@types/react-dom": "^18.2.7",
-    "astro": "^3.0.3",
+    "@types/react": "^18.2.29",
+    "@types/react-dom": "^18.2.13",
+    "astro": "^3.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sanitize-html": "^2.11.0"
   },
   "devDependencies": {
-    "@types/sanitize-html": "^2.9.1",
-    "@unocss/reset": "^0.55.3",
-    "bun-types": "^1.0.1",
+    "@types/sanitize-html": "^2.9.3",
+    "@unocss/reset": "^0.56.5",
+    "bun-types": "^1.0.6",
     "prettier": "^3.0.3",
     "prettier-plugin-astro": "^0.12.0",
-    "unocss": "^0.55.3"
+    "unocss": "^0.56.5"
   }
 }

@@ -9,6 +9,8 @@ import { ExternalLinkIcon } from "@components/icons/ExternalLinkIcon";
 import localLogoMemoQ from "../../images/logo-q.svg";
 import sanitizeHTML from "sanitize-html";
 import CopyButton from "@components/CopyButton.astro";
+import { CopyIcon } from "@components/icons/CopyIcon";
+import { LinkedInIcon } from "@components/icons/LinkedinIcon";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -17,7 +19,7 @@ const t = useTranslations(lang);
 <BaseLayout>
   <Header />
 
-  <main class="flex flex-col font-inter gap-10">
+  <main class="flex flex-col font-inter gap-10 mbe-10">
     <section id="hero" class="grid border-b h-40rem">
       <StrokedCirclePattern className="col-span-full row-span-full" />
       <div class="flex flex-col items-center justify-center col-span-full row-span-full">
@@ -50,9 +52,9 @@ const t = useTranslations(lang);
       </article>
     </section>
 
-    <article class="max-w-2xl mx-a">
+    <article class="max-w-2xl mx-a grid gap-y-4">
       <h2 class="font-gabarito font-800 text-2xl">{t("domaine.title")}</h2>
-      <ul>
+      <ul class="list-circle px-10 grid gap-y-2">
         <li>{t("domaine.list.1")}</li>
         <li>{t("domaine.list.2")}</li>
         <li>{t("domaine.list.3")}</li>
@@ -129,10 +131,27 @@ const t = useTranslations(lang);
 
     <section id="contact" class="max-w-2xl mx-a grid gap-y-2 mb-4">
       <h2 class="font-gabarito font-800 text-2xl">{t("nav.contact")}</h2>
-      <div>
-        <CopyButton content="freyapalsma@gmail.com" client:only>Copy</CopyButton>
-        <button type="button">freyapalsma@gmail.com</button>
-        <a href="#" target="_blank" rel="noopener noreferrer">Linkedin</a>
+
+      <div class="flex gap-10">
+        <CopyButton
+          className="flex items-center gap-x-1 border px-4 py-2 rounded"
+          content="freyapalsma@gmail.com"
+        >
+          <span class="text-sm">freyapalsma@gmail.com</span>
+          <CopyIcon className="text-amber" aria-hidden />
+        </CopyButton>
+
+        <a
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-4 border rounded px-4 py-2 text-sm"
+        >
+          <div class="flex items-center gap-x-1">
+            <LinkedInIcon aria-hidden /><span class="text-sm underline">freya linkedin</span>
+          </div>
+          <ExternalLinkIcon aria-hidden className="w-12px h-12px" />
+        </a>
       </div>
     </section>
   </main>
