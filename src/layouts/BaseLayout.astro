@@ -6,6 +6,12 @@ import { getLangFromUrl } from "@i18n/utils";
 const lang = getLangFromUrl(Astro.url);
 
 import "@styles/fonts.css";
+
+type Props = {
+  title?: string;
+};
+
+const { title = "Brainslate - Freelance Translator Services" } = Astro.props;
 ---
 
 <html lang={lang}>
@@ -37,7 +43,7 @@ import "@styles/fonts.css";
     <link rel="preload" href="/fonts/Inter.ttf" as="font" type="font/ttf" crossorigin />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <title>Brainslate - Freelance Translator Services</title>
+    <title>{title}</title>
   </head>
 
   <body

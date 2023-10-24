@@ -58,12 +58,10 @@ export const ui = {
     "nav.about": "About",
     "nav.prices": "Prices",
     "nav.contact": "Contact",
-    "hero.title":
-      "Professional <span>trilingual translation</span> service for all your business or personal documents.",
-    "presentation.title": "Linguistic combinations",
+    "presentation.title": "Global Linguistic Reach",
     "objective.title": "The objective of my translations is that they are fluid and faithful",
     "objective.description":
-      "By applying myself to determine the most precise and appropriate term in each context, my intention is that the translation retains the same impact as the original text.",
+      "In the effort to identify the most precise and fitting term for each situation, Brainslate's aim is to preserve your original impact.",
     "trial.description":
       "5 euros trial offer for your first 250 words Take advantage of this offer to have a short document translated or simply to get an idea of the quality of my work for a possible longer project.",
     "trial.cta": "Learn more",

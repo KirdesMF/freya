@@ -1,0 +1,33 @@
+---
+import { getLangFromUrl } from "@i18n/utils";
+const lang = getLangFromUrl(Astro.url);
+---
+
+<h1 class="max-w-[15ch] sm:max-w-[23ch] px-5 font-gabarito text-7xl font-900 sm:text-center">
+  {
+    lang === "fr" && (
+      <Fragment>
+        Service de traduction <span class="text-red">professionnelle trilingue</span> pour tous vos
+        documents commerciaux ou personnels.
+      </Fragment>
+    )
+  }
+
+  {
+    lang === "en" && (
+      <Fragment>
+        Professional <span class="text-red">trilingual translation</span> service for all your
+        business or personal documents.
+      </Fragment>
+    )
+  }
+
+  {
+    lang === "nl" && (
+      <Fragment>
+        Professionele <span class="text-red">drietalige vertaaldienst</span> voor al uw zakelijke of
+        persoonlijke documenten.
+      </Fragment>
+    )
+  }
+</h1>

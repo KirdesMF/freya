@@ -1,7 +1,36 @@
 ---
+import { ExternalLinkIcon } from "@components/icons/ExternalLinkIcon";
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
+import BaseLayout from "@layouts/BaseLayout.astro";
 
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
-<main>
-  <h1>Prices</h1>
-</main>
+<BaseLayout title="Brainslate | Prices">
+  <main class="min-h-100dvh mbs-xl flex flex-col items-center">
+    <section id="prices" class="flex flex-col max-w-2xl">
+      <h2 class="font-gabarito font-800 text-2xl">{t("prices.title")}</h2>
+      <p class="mb-2">{t("prices.description")}</p>
+
+      <p class="mb-2">
+        {t("prices.tih")}
+        <a
+          href="https://www.agefiph.fr/employeur#linclusion-de-personnes-handicapees-une-opportunite-rh-a-saisir"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center underline gap-x-1 text-blue-600 hover:text-blue-800"
+        >
+          {t("prices.link")}
+          <span><ExternalLinkIcon aria-hidden /></span>
+        </a>
+      </p>
+    </section>
+
+    <section class="max-w-2xl">
+      <h2 class="font-gabarito text-2xl font-800">{t("disposability.title")}</h2>
+      <p>➡️ {t("disposability.answer")}</p>
+      <p>➡️ {t("disposability.delivery")}</p>
+    </section>
+  </main>
+</BaseLayout>

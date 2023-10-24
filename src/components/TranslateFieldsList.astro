@@ -1,0 +1,40 @@
+---
+import { getLangFromUrl } from "@i18n/utils";
+import { ArrowRightIcon } from "./icons/ArrowRightIcon";
+
+const lang = getLangFromUrl(Astro.url);
+
+const en = [
+  "International trade, Import-export, Sales administration",
+  "Transport, Logistics, transport documents",
+  "Health, Medicine, Anatomy, Biology, Diseases, Maternity, Pediatrics",
+  "Tourism, Hospitality, Reception",
+];
+
+const fr = [
+  "Commerce international, Import-export, Administration des ventes",
+  "Transport, Logistique, documents de transport",
+  "Santé, Médecine, Anatomie, Biologie, Maladies, Maternité, Pédiatrie",
+  "Tourisme, Hôtellerie, Accueil",
+];
+
+const nl = [
+  "Internationale handel, Import-export, Verkoopadministratie",
+  "Transport, Logistiek, transportdocumenten",
+  "Gezondheid, Geneeskunde, Anatomie, Biologie, Ziekten, Zwangerschap, Pediatrie",
+  "Toerisme, Horeca, Receptie",
+];
+
+const FIELDS = { en, fr, nl };
+---
+
+<ul class="px-10 grid gap-y-2">
+  {
+    FIELDS[lang].map((field) => (
+      <li class="flex items-center gap-x-1">
+        <ArrowRightIcon />
+        {field}
+      </li>
+    ))
+  }
+</ul>

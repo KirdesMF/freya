@@ -1,0 +1,62 @@
+---
+import { getLangFromUrl, useTranslatedPath } from "@i18n/utils";
+import { DoubleChevronRightIcon } from "./icons/DoubleChevronRightIcon";
+
+const lang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(lang);
+---
+
+<div class="flex items-center justify-center gap-x-4 px-4 py-4 border-b border-t">
+  <span class="bg-black text-white px-2 py-1 rounded text-sm font-700">TRIAL</span>
+
+  {
+    lang === "en" && (
+      <Fragment>
+        <p>
+          For your first <span class="font-700">250</span> words.
+        </p>
+        <a
+          class="flex items-center gap-x-2 border border-black pis-4 pie-2 py-1 rounded text-sm font-600"
+          href={translatePath("/prices")}
+        >
+          know more
+          <DoubleChevronRightIcon />
+        </a>
+      </Fragment>
+    )
+  }
+
+  {
+    lang === "fr" && (
+      <Fragment>
+        <p>
+          Pour vos premiers <span class="font-700">250</span> mots.
+        </p>
+        <a
+          class="flex items-center gap-x-2 border border-black pis-4 pie-2 py-1 rounded text-sm font-600"
+          href={translatePath("/prices")}
+        >
+          en savoir plus
+          <DoubleChevronRightIcon />
+        </a>
+      </Fragment>
+    )
+  }
+
+  {
+    lang === "nl" && (
+      <Fragment>
+        <p>
+          Voor uw eerste <span class="font-700">250</span> woorden.
+        </p>
+        <a
+          class="flex items-center gap-x-2 border border-black pis-4 pie-2 py-1 rounded text-sm font-600"
+          href={translatePath("/prices")}
+        >
+          meer weten
+          <DoubleChevronRightIcon />
+        </a>
+      </Fragment>
+    )
+  }
+</div>

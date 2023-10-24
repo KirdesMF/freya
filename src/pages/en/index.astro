@@ -1,130 +1,166 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import Footer from "@components/Footer.astro";
 import { getLangFromUrl, useTranslations } from "@i18n/utils";
 import { StrokedCirclePattern } from "@components/StrokedCirclePattern";
 import TableLanguageCombinations from "@components/TableLanguageCombinations.astro";
 import { ExternalLinkIcon } from "@components/icons/ExternalLinkIcon";
 import localLogoMemoQ from "../../images/logo-q.svg";
-import sanitizeHTML from "sanitize-html";
+import HeroHeading from "@components/HeroHeading.astro";
+import { DoubleChevronRightIcon } from "@components/icons/DoubleChevronRightIcon";
+import TrialBanner from "@components/TrialBanner.astro";
+import CopyButton from "@components/CopyButton.astro";
+import { CopyIcon } from "@components/icons/CopyIcon";
+import { LinkedInIcon } from "@components/icons/LinkedinIcon";
+import TranslateFieldsList from "@components/TranslateFieldsList.astro";
+import { MailIcon } from "@components/icons/MailIcon";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
 <BaseLayout>
-  <main class="flex flex-col font-inter gap-10">
-    <section id="hero" class="grid border-b h-40rem">
+  <main class="flex flex-col font-inter">
+    <section id="hero" class="grid h-40rem">
       <StrokedCirclePattern className="col-span-full row-span-full" />
-      <div class="flex flex-col items-center justify-center col-span-full row-span-full">
-        <h1
-          class="max-w-[15ch] sm:max-w-[23ch] px-5 font-gabarito text-7xl font-900 sm:text-center [&>span]:text-red"
-          set:html={sanitizeHTML(t("hero.title"))}
-        />
+      <div class="flex flex-col gap-y-8 items-center justify-center col-span-full row-span-full">
+        <HeroHeading />
+        <a
+          href="#contact"
+          class="flex items-center gap-x-2 border border-black pis-4 pie-2 py-2 rounded text-sm font-600"
+        >
+          Get in touch
+          <DoubleChevronRightIcon />
+        </a>
       </div>
     </section>
 
-    <section id="presentation" class="flex flex-col gap-10">
-      <article class="mx-a px-10 py-12 max-w-[500px]">
-        <h2 class="font-gabarito text-4xl font-800 mbe-8">{t("presentation.title")}</h2>
-        <TableLanguageCombinations />
-      </article>
+    <TrialBanner />
 
-      <article class="max-w-2xl mx-a">
-        <h2 class="font-gabarito font-800 text-2xl">{t("objective.title")}</h2>
-        <p>{t("objective.description")}</p>
-      </article>
-
-      <article class="mx-a max-w-2xl">
-        <p class="mb-4">
-          {t("trial.description")}
-        </p>
-
-        <a href="#contact" class="border px-2 py-2 rounded-sm text-sm font-600">
-          {t("trial.cta")}
-        </a>
-      </article>
-    </section>
-
-    <article class="max-w-2xl mx-a">
-      <h2 class="font-gabarito font-800 text-2xl">{t("domaine.title")}</h2>
-      <ul>
-        <li>{t("domaine.list.1")}</li>
-        <li>{t("domaine.list.2")}</li>
-        <li>{t("domaine.list.3")}</li>
-        <li>{t("domaine.list.4")}</li>
-        <li>{t("domaine.list.5")}</li>
-      </ul>
-
-      <p set:html={sanitizeHTML(t("feasibility.body"))} class="[&>a]:text-blue [&>a]:underline" />
-    </article>
-
-    <article class="max-w-2xl mx-a">
-      <h2 class="inline-flex text-24px font-gabarito gap-x-2">
-        <img src={localLogoMemoQ.src} alt="" width={24} height={24} />
-         MEMO Q TRANSLATOR PRO
+    <section class="max-w-1200px px-4 mx-a mbs-18 grid gap-4 justify-items-center">
+      <h2 class="mbe-4 text-center font-gabarito font-800 text-4xl underline">
+        The aim of my translations is for them <br /> to be fluent and faithful.
       </h2>
-      <p>
-        {t("memoq.body")}
-
-         (<a
-          href="https://www.trados.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center underline gap-x-1 text-blue"
-        >
-          SDL TRADOS <span><ExternalLinkIcon aria-hidden className="stroke-current" /></span>
-        </a>
-        {" "}{t("general.or")}{" "}
-        <a
-          href="https://www.trados.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center underline gap-x-1 text-blue"
-        >
-          WORDFAST <span><ExternalLinkIcon aria-hidden className="stroke-current" /></span>
-        </a>).
-      </p>
-    </article>
-
-    <article class="max-w-2xl mx-a">
-      <h2 class="font-gabarito text-4xl font-800">{t("disposability.title")}</h2>
-      <p>➡️ {t("disposability.answer")}</p>
-      <p>➡️ {t("disposability.delivery")}</p>
-    </article>
-
-    <section id="prices" class="flex flex-col max-w-2xl ma">
-      <h2 class="font-gabarito font-800 text-2xl">{t("prices.title")}</h2>
-      <p class="mb-2">{t("prices.description")}</p>
-
-      <p class="mb-2">
-        {t("prices.tih")}
-        <a
-          href="https://www.agefiph.fr/employeur#linclusion-de-personnes-handicapees-une-opportunite-rh-a-saisir"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center underline gap-x-1"
-        >
-          {t("prices.link")}
-          <span><ExternalLinkIcon aria-hidden /></span>
-        </a>
+      <p class="max-w-600px text-center">
+        By working to determine the most accurate and appropriate term in each context, my intention
+        is that the translation retains the <strong>same impact</strong> as the original text.
       </p>
     </section>
 
-    <section id="about" class="max-w-2xl mx-a grid gap-y-2 mb-4">
-      <h2 class="font-gabarito font-800 text-2xl">{t("about.title")}</h2>
+    <section class="max-w-1200px px-4 mx-a mbs-18 grid gap-4 justify-items-center">
+      <h2 class="mbe-4 font-gabarito text-center text-4xl font-800 underline">
+        Global linguistic reach
+      </h2>
+      <p class="max-w-600px text-center">
+        This table displays my language proficiency and translation capabilities to helping you
+        match the right linguist to your specific language needs.
+      </p>
+      <TableLanguageCombinations />
 
-      <div>
-        <p>Freya PALSMA</p>
-        <p>{t("about.job")}</p>
+      <article class="max-w-800px py-4 px-4 text-sm border-l-6 border border-black rounded mt-4">
+        <h3 class="inline-flex gap-x-2 mb-2 font-500">
+          <img src={localLogoMemoQ.src} alt="" width={16} height={16} />
+           MemoQ translator pro
+        </h3>
+        <p>
+          I use the computer-assisted translation environment <strong>MEMO Q PRO</strong>, a tool
+          that allows me to work from many document formats and is compatible with most other
+          translation tools.
+          <a
+            href="https://www.trados.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center hover:underline gap-x-1 text-blue"
+          >
+            SDL Trados <span><ExternalLinkIcon aria-hidden className="stroke-current" /></span>
+          </a>
+          {" "}-{" "}
+          <a
+            href="https://www.trados.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center hover:underline gap-x-1 text-blue"
+          >
+            Wordfast <span><ExternalLinkIcon aria-hidden className="stroke-current" /></span>
+          </a>
+        </p>
+      </article>
+    </section>
+
+    <section class="max-w-1200px px-4 mx-a mbs-18 grid gap-4">
+      <h2 class="mbe-4 font-gabarito font-800 text-4xl mbe-2 text-center underline">
+        Preferred fields based on my personal and <br /> professional experience
+      </h2>
+
+      <TranslateFieldsList />
+
+      <article class="max-w-800px py-4 px-4 text-sm border-l-6 border border-black rounded mt-4">
+        <p class="mb-2">
+          Do you have doubts about the feasibility of the translation you want to request ? (poetry,
+          formal register, rich symbolism of the text, specific terms...)
+        </p>
+        <p>
+          Do not hesitate to
+          <a class="text-blue font-500 hover:underline hover:underline-blue" href="#contact">
+            contact me or request a quote.
+          </a>
+        </p>
+      </article>
+    </section>
+
+    <section id="about" class="max-w-1200px mx-a grid gap-y-4 mbs-16 px-4">
+      <h2 class="mbe-4 font-gabarito font-800 text-4xl text-center underline">
+        About the translator
+      </h2>
+
+      <p>Freya PALSMA - Professional freelance translator with a disability (TIH)</p>
+
+      <p class="max-w-800px mx-a">
+        Born and educated in France but of Dutch origin, I learned to translate by learning to
+        speak; French at school, Dutch at home. I then had the opportunity to learn English fluently
+        by spending a year of my schooling in England and continuing this learning in the
+        international section at college until obtaining the Baccalauréat (OIB/BFI) in an
+        international high school in France. I have since been able to practice and enrich these
+        languages professionally in business; I worked for three years in the hotel industry and two
+        years for an international logistics provider, with daily contact with colleagues and
+        clients from the BeNeLux.
+      </p>
+
+      <p class="max-w-800px mx-a">
+        Having declared a rare neurological disease in adulthood, the lack of information and
+        research available in French on this pathology made me discover that having access to
+        translation not only allows communication between two linguistic communities or
+        international trade, but above all facilitates the sharing of information and the enrichment
+        of one's individual culture. <br /> Translating has become a reflex for me, and being able
+        to offer you this service today is a great satisfaction.
+      </p>
+    </section>
+
+    <section id="contact" class="max-w-1200px mx-a grid gap-y-8 my-16 px-4">
+      <h2 class="font-gabarito font-800 text-4xl underline">Contact</h2>
+      <p>Feel free to get in touch with me through email or connect with me on LinkedIn.</p>
+
+      <div class="justify-self-center flex flex-wrap gap-10">
+        <CopyButton
+          className="flex items-center gap-x-1 border border-black px-4 py-2 rounded"
+          content="brainslate@outlook.fr"
+        >
+          <MailIcon aria-hidden />
+          <span class="text-sm">brainslate@outlook.fr</span>
+          <CopyIcon aria-hidden className="w-16px h-16px" />
+        </CopyButton>
+
+        <a
+          href="https://www.linkedin.com/in/freya-palsma/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-x-1 border border-black rounded px-4 py-2 text-sm"
+        >
+          <div class="flex items-center gap-x-1">
+            <LinkedInIcon aria-hidden /><span class="text-sm underline">Linkedin</span>
+          </div>
+          <ExternalLinkIcon aria-hidden className="w-16px h-16px" />
+        </a>
       </div>
-
-      <p>{t("about.description.1")}</p>
-      <p>{t("about.description.2")}</p>
-    </section>
-
-    <section id="contact" class="max-w-2xl mx-a grid gap-y-2 mb-4">
-      <h2 class="font-gabarito font-800 text-2xl">{t("nav.contact")}</h2>
     </section>
   </main>
 </BaseLayout>
