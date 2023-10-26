@@ -6,8 +6,12 @@ const lang = getLangFromUrl(Astro.url);
 const translatePath = useTranslatedPath(lang);
 ---
 
-<div class="flex items-center justify-center gap-x-4 px-4 py-4 border-b border-t">
-  <span class="bg-black text-white px-2 py-1 rounded text-sm font-700">TRIAL</span>
+<div class="flex items-center justify-center gap-x-4 px-4 py-4 border-border border-b border-t">
+  <span
+    class="text-white bg-black dark:bg-white dark:text-black px-2 py-1 rounded text-sm font-700"
+  >
+    TRIAL
+  </span>
 
   {
     lang === "en" && (
@@ -16,7 +20,7 @@ const translatePath = useTranslatedPath(lang);
           For your first <span class="font-700">250</span> words.
         </p>
         <a
-          class="flex items-center gap-x-2 border border-black pis-4 pie-2 py-1 rounded text-sm font-600"
+          class="flex items-center gap-x-2 border border-border pis-4 pie-2 py-1 rounded text-sm font-600"
           href={translatePath("/prices")}
         >
           know more
@@ -33,7 +37,7 @@ const translatePath = useTranslatedPath(lang);
           Pour vos premiers <span class="font-700">250</span> mots.
         </p>
         <a
-          class="flex items-center gap-x-2 border border-black pis-4 pie-2 py-1 rounded text-sm font-600"
+          class="flex items-center gap-x-2 border border-border pis-4 pie-2 py-1 rounded text-sm font-600"
           href={translatePath("/prices")}
         >
           en savoir plus
@@ -50,7 +54,7 @@ const translatePath = useTranslatedPath(lang);
           Voor uw eerste <span class="font-700">250</span> woorden.
         </p>
         <a
-          class="flex items-center gap-x-2 border border-black pis-4 pie-2 py-1 rounded text-sm font-600"
+          class="flex items-center gap-x-2 border border-border pis-4 pie-2 py-1 rounded text-sm font-600"
           href={translatePath("/prices")}
         >
           meer weten

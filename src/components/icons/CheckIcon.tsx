@@ -6,6 +6,7 @@ export function CheckIcon({ className }: { className?: string }) {
       className={className}
       width={24}
       height={24}
+      fill="currentColor"
     >
       <path d="M10.0007 15.1709L19.1931 5.97852L20.6073 7.39273L10.0007 17.9993L3.63672 11.6354L5.05093 10.2212L10.0007 15.1709Z"></path>
     </svg>

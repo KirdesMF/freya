@@ -1,7 +1,7 @@
 ---
 import { getLangFromUrl, useTranslatedPath, useTranslations } from "@i18n/utils";
 import { SelectLanguage } from "./SelectLanguage";
-import { SwitchColorScheme } from "./SwitchColorScheme";
+import { ToggleMode } from "./ToggleMode.tsx";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -15,7 +15,7 @@ const LINKS = [
 ];
 ---
 
-<header class="px-12 py-6 font-inter border-b sticky top-0 w-full frosted">
+<header class="px-12 py-6 font-inter sticky top-0 w-full backdrop-blur-sm">
   <div class="flex justify-between items-center gap-x-2xl max-w-[50rem] mx-a">
     <a
       href={translatePath("/")}
@@ -29,10 +29,7 @@ const LINKS = [
     <nav class="hidden md:flex gap-x-xs">
       {
         LINKS.map(({ href, label }) => (
-          <a
-            href={translatePath(href)}
-            class="text-gray-900 dark:text-gray-100 hover:text-gray-700 dark:hover:text-gray-300 font-450 text-base"
-          >
+          <a href={translatePath(href)} class="text-foreground  font-450 text-base">
             {label}
           </a>
         ))
@@ -40,18 +37,15 @@ const LINKS = [
     </nav>
 
     <div class="hidden md:flex gap-x-xs">
-      <SwitchColorScheme client:load />
       <SelectLanguage client:only />
+      <ToggleMode client:load />
     </div>
   </div>
 </header>
 
 <style scoped>
   .frosted {
-    background: rgba(241, 245, 249, 0.2);
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(2px);
-    border: 1px solid rgba(255, 255, 255, 0.29);
   }
 </style>
