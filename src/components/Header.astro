@@ -2,45 +2,51 @@
 import { getLangFromUrl, useTranslatedPath, useTranslations } from "@i18n/utils";
 import { SelectLanguage } from "./SelectLanguage";
 import { ToggleMode } from "./ToggleMode.tsx";
+import { MenuBurgerIcon } from "./icons/MenuBurgerIcon";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 
 const LINKS = [
-  { href: "/", label: t("nav.home") },
-  { href: "/#about", label: t("nav.about") },
+  // { href: "/", label: t("nav.home") },
   { href: "/prices", label: t("nav.prices") },
+  { href: "/#about", label: t("nav.about") },
   { href: "/#contact", label: t("nav.contact") },
 ];
 ---
 
-<header class="px-12 py-6 font-inter sticky top-0 w-full backdrop-blur-sm">
-  <div class="flex justify-between items-center gap-x-2xl max-w-[50rem] mx-a">
-    <a
-      href={translatePath("/")}
-      class="text-2xl font-800 font-gabarito text-gray-900 dark:text-gray-100"
-    >
-      Brainslate
-    </a>
+<header class="px-12 py-6 font-inter sticky top-0 w-full backdrop-blur-sm border-b-border border-b">
+  <nav class="flex justify-between gap-x-2xl max-w-1200px mx-a">
+    <div class="flex gap-x-sm">
+      <a
+        href={translatePath("/")}
+        class="text-2xl font-800 font-gabarito text-gray-900 dark:text-gray-100"
+      >
+        Brainslate
+      </a>
 
-    <!-- <button type="button" class="md:hidden"> <MenuBurgerIcon /></button> -->
+      <div class="bg-primary h-full w-1px" role="separator"></div>
 
-    <nav class="hidden md:flex gap-x-xs">
-      {
-        LINKS.map(({ href, label }) => (
-          <a href={translatePath(href)} class="text-foreground  font-450 text-base">
-            {label}
-          </a>
-        ))
-      }
-    </nav>
-
-    <div class="hidden md:flex gap-x-xs">
-      <SelectLanguage client:only />
-      <ToggleMode client:load />
+      <div class="flex items-center gap-x-sm">
+        {
+          LINKS.map(({ href, label }) => (
+            <a
+              href={translatePath(href)}
+              class="text-foreground hover:text-foreground/40 font-gabarito font-450"
+            >
+              {label}
+            </a>
+          ))
+        }
+      </div>
     </div>
-  </div>
+
+    <div class="flex items-center gap-x-sm">
+      <ToggleMode client:load />
+      <SelectLanguage client:only />
+    </div>
+  </nav>
 </header>
 
 <style scoped>

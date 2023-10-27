@@ -37,8 +37,8 @@ export function StrokedCirclePattern(props: { className?: string }) {
     >
       <defs>
         <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor="hsl(0, 100%, 50%)" />
-          <stop offset="100%" stopColor="hsla(0, 0%, 0%, 0.3)" />
+          <stop offset="0%" stopColor="hsl(var(--primary))" />
+          <stop offset="100%" stopColor="hsla(var(--muted)/0.5)" />
         </linearGradient>
       </defs>
       {circles}

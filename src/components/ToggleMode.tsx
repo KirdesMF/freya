@@ -25,20 +25,17 @@ export function ToggleMode() {
   }
 
   return (
-    <BaseTooltip>
-      <div className="flex gap-x-2 items-center">
-        <button type="button" onClick={() => setTheme("theme-light")}>
-          <SunIcon />
-        </button>
-
-        <button type="button" onClick={() => setTheme("dark")}>
-          <MoonIcon />
-        </button>
-
-        <button type="button" onClick={() => setTheme("system")}>
-          <ScreenIcon />
-        </button>
-      </div>
+    <BaseTooltip content={theme === "theme-light" ? "Dark mode" : "Light mode"}>
+      <button
+        className="flex items-center gap-x-2 border border-border bg-background p-2 rounded text-sm font-600"
+        type="button"
+        onClick={() => setTheme(theme === "theme-light" ? "dark" : "theme-light")}
+      >
+        {theme === "theme-light" ? <SunIcon /> : <MoonIcon />}
+        <span className="sr-only">
+          {theme === "theme-light" ? "Turn to dark mode" : "Turn to light mode"}
+        </span>
+      </button>
     </BaseTooltip>
   );
 }

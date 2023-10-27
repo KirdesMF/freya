@@ -1,15 +1,15 @@
 ---
+import Button from "./Button.astro";
 type Props = {
   content: string;
-  className: string;
 };
 
-const { content, className } = Astro.props;
+const { content } = Astro.props;
 ---
 
-<button class={className} id="copy-btn" type="button" data-copy={content}>
+<Button id="copy-btn" data-copy={content}>
   <slot />
-</button>
+</Button>
 
 <script>
   const btn = document.getElementById("copy-btn");

@@ -25,7 +25,7 @@ const t = useTranslations(lang);
       <StrokedCirclePattern className="col-span-full row-span-full" />
       <div class="flex flex-col gap-y-8 items-center justify-center col-span-full row-span-full">
         <HeroHeading />
-        <Link href="#contact">
+        <Link href="#contact" variant="button">
           Get in touch
           <DoubleChevronRightIcon />
         </Link>
@@ -141,10 +141,7 @@ const t = useTranslations(lang);
       <p>N'hésitez pas à me contacter par e-mail ou via LinkedIn.</p>
 
       <div class="justify-self-center flex flex-wrap gap-10">
-        <CopyButton
-          className="flex items-center gap-x-1 border border-border px-4 py-2 rounded"
-          content="brainslate@outlook.fr"
-        >
+        <CopyButton content="brainslate@outlook.fr">
           <MailIcon aria-hidden />
           <span class="text-sm">brainslate@outlook.fr</span>
           <CopyIcon aria-hidden className="w-16px h-16px" />
