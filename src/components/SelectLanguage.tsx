@@ -38,6 +38,7 @@ export function SelectLanguage() {
         <Select.Content
           className="border border-border rounded w-[var(--radix-select-trigger-width)] bg-background"
           position="popper"
+          sideOffset={2}
         >
           <Select.Viewport className="p-5px">
             {LANGUAGES.map((lang) => (
