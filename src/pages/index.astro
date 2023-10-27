@@ -13,6 +13,7 @@ import { CopyIcon } from "@components/icons/CopyIcon";
 import { LinkedInIcon } from "@components/icons/LinkedinIcon";
 import TranslateFieldsList from "@components/TranslateFieldsList.astro";
 import { MailIcon } from "@components/icons/MailIcon";
+import Link from "@components/Link.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -24,13 +25,10 @@ const t = useTranslations(lang);
       <StrokedCirclePattern className="col-span-full row-span-full" />
       <div class="flex flex-col gap-y-8 items-center justify-center col-span-full row-span-full">
         <HeroHeading />
-        <a
-          href="#contact"
-          class="flex items-center gap-x-2 border border-border pis-4 pie-2 py-2 rounded text-sm font-600"
-        >
+        <Link href="#contact">
           Get in touch
           <DoubleChevronRightIcon />
-        </a>
+        </Link>
       </div>
     </section>
 

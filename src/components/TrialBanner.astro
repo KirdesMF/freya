@@ -1,6 +1,7 @@
 ---
 import { getLangFromUrl, useTranslatedPath } from "@i18n/utils";
 import { DoubleChevronRightIcon } from "./icons/DoubleChevronRightIcon";
+import Link from "./Link.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const translatePath = useTranslatedPath(lang);
@@ -19,13 +20,10 @@ const translatePath = useTranslatedPath(lang);
         <p>
           For your first <span class="font-700">250</span> words.
         </p>
-        <a
-          class="flex items-center gap-x-2 border border-border pis-4 pie-2 py-2 rounded text-sm font-600"
-          href={translatePath("/prices")}
-        >
+        <Link href={translatePath("/prices")}>
           Know more
           <DoubleChevronRightIcon />
-        </a>
+        </Link>
       </Fragment>
     )
   }
@@ -36,13 +34,10 @@ const translatePath = useTranslatedPath(lang);
         <p>
           Pour vos premiers <span class="font-700">250</span> mots.
         </p>
-        <a
-          class="flex items-center gap-x-2 border border-border pis-4 pie-2 py-2 rounded text-sm font-600"
-          href={translatePath("/prices")}
-        >
+        <Link href={translatePath("/prices")}>
           En savoir plus
           <DoubleChevronRightIcon />
-        </a>
+        </Link>
       </Fragment>
     )
   }
@@ -53,13 +48,10 @@ const translatePath = useTranslatedPath(lang);
         <p>
           Voor uw eerste <span class="font-700">250</span> woorden.
         </p>
-        <a
-          class="flex items-center gap-x-2 border border-border pis-4 pie-2 py-2 rounded text-sm font-600"
-          href={translatePath("/prices")}
-        >
+        <Link href={translatePath("/prices")}>
           Meer weten
           <DoubleChevronRightIcon />
-        </a>
+        </Link>
       </Fragment>
     )
   }

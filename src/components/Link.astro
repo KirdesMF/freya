@@ -1,0 +1,20 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+export type Props = HTMLAttributes<"a">;
+
+const url = new URL(Astro.props.href as string, Astro.url);
+const isExternal = url.host !== Astro.url.host;
+const isCurrent = url.href === Astro.url.href;
+
+const props = Astro.props;
+---
+
+<a
+  aria-current={isCurrent ? "page" : null}
+  rel={isExternal ? "noopener noreferrer" : null}
+  class="flex items-center gap-x-1 border border-border rounded px-4 py-2 text-sm font-700"
+  {...props}
+>
+  <slot />
+</a>
