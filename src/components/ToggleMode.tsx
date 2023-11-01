@@ -27,7 +27,7 @@ export function ToggleMode() {
   return (
     <BaseTooltip content={theme === "theme-light" ? "Dark mode" : "Light mode"}>
       <button
-        className="flex items-center gap-x-2 border border-border bg-background p-2 rounded text-sm font-600"
+        className="border-border  font-600 flex items-center gap-x-2 rounded border p-2 text-sm"
         type="button"
         onClick={() => setTheme(theme === "theme-light" ? "dark" : "theme-light")}
       >

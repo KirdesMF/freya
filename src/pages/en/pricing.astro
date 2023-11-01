@@ -1,6 +1,7 @@
 ---
 import { ArrowRightIcon } from "@components/icons/ArrowRightIcon";
 import { ExternalLinkIcon } from "@components/icons/ExternalLinkIcon";
+import BaseLink from "@components/ui/BaseLink.astro";
 import { getLangFromUrl, useTranslations } from "@i18n/utils";
 import BaseLayout from "@layouts/BaseLayout.astro";
 
@@ -9,9 +10,9 @@ const t = useTranslations(lang);
 ---
 
 <BaseLayout title="Brainslate | Prices">
-  <main class="min-h-100dvh mbs-xl flex flex-col items-center">
-    <section class="max-w-2xl">
-      <h2 class="font-gabarito text-2xl font-800">My Availabilities</h2>
+  <main class="min-h-100dvh mt-xl max-w-1200px mx-a flex flex-col gap-y-4">
+    <section>
+      <h2 class="font-gabarito font-800 text-2xl">My Availabilities</h2>
 
       <ul>
         <li class="flex items-baseline gap-x-2">
@@ -25,7 +26,7 @@ const t = useTranslations(lang);
       </ul>
     </section>
 
-    <section id="prices" class="flex flex-col max-w-2xl">
+    <section class="flex flex-col">
       <h2 class="font-gabarito font-800 text-2xl">Pricing</h2>
       <p class="mb-2">
         The determination of rates depends on the level of technicality and complexity of the text,
@@ -38,16 +39,15 @@ const t = useTranslations(lang);
       <p class="mb-2">
         I am a self-employed disabled person: In France, there are agreements for companies on the
         employment of persons with disabilities. For more information:
-        <a
+        <BaseLink
           href="https://www.agefiph.fr/employeur#linclusion-de-personnes-handicapees-une-opportunite-rh-a-saisir"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center underline gap-x-1 text-blue-600 hover:text-blue-800"
+          external
         >
           https://www.agefiph.fr/employeur#linclusion-de-personnes-handicapees-une-opportunite-rh-a-saisir
 
+
           <span><ExternalLinkIcon aria-hidden /></span>
-        </a>
+        </BaseLink>
       </p>
     </section>
   </main>

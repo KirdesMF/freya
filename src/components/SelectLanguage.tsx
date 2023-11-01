@@ -27,19 +27,19 @@ export function SelectLanguage() {
 
   return (
     <Select.Root value={lang} onValueChange={onChange}>
-      <Select.Trigger className="flex gap-x-2 items-center justify-center border border-border px-1 py-1 rounded text-sm outline-none">
+      <Select.Trigger className="border-border flex items-center justify-center gap-x-2 rounded border  px-1 py-1 text-sm outline-none">
         <Select.Icon>
-          <TranslateIcon className="w-[18px] h-[18px]" />
+          <TranslateIcon className="h-[18px] w-[18px]" />
         </Select.Icon>
         <Select.Value></Select.Value>
         <Select.Icon>
-          <ChevronDownIcon className="w-[18px] h-[18px]" />
+          <ChevronDownIcon className="h-[18px] w-[18px]" />
         </Select.Icon>
       </Select.Trigger>
 
       <Select.Portal>
         <Select.Content
-          className="border border-border rounded w-[var(--radix-select-trigger-width)] bg-background"
+          className="border-border bg-background w-[var(--radix-select-trigger-width)] rounded border"
           position="popper"
           sideOffset={2}
         >
@@ -48,10 +48,10 @@ export function SelectLanguage() {
               <Select.Item
                 key={lang.code}
                 value={lang.code}
-                className="relative gap-x-2 text-xs py-1 pie-10px pis-18px select-none rounded-sm data-[highlighted]:outline-none data-[highlighted]:bg-background/50"
+                className="pie-10px pis-18px data-[highlighted]:bg-background/50 relative select-none gap-x-2 rounded-sm py-1 text-xs data-[highlighted]:outline-none"
               >
-                <Select.ItemIndicator className="absolute left-0 top-0 bottom-0 flex items-center justify-center w-16px">
-                  <CheckIcon className="w-[12px] h-[12px]" />
+                <Select.ItemIndicator className="w-16px absolute bottom-0 left-0 top-0 flex items-center justify-center">
+                  <CheckIcon className="h-[12px] w-[12px]" />
                 </Select.ItemIndicator>
 
                 <Select.ItemText>{lang.name}</Select.ItemText>

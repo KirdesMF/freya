@@ -13,31 +13,29 @@ import { CopyIcon } from "@components/icons/CopyIcon";
 import { LinkedInIcon } from "@components/icons/LinkedinIcon";
 import TranslateFieldsList from "@components/TranslateFieldsList.astro";
 import { MailIcon } from "@components/icons/MailIcon";
+import BaseLink from "@components/ui/BaseLink.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
 <BaseLayout>
-  <main class="flex flex-col font-inter">
-    <section id="hero" class="grid h-40rem">
+  <main class="font-inter flex flex-col">
+    <section id="hero" class="h-40rem grid">
       <!-- <StrokedCirclePattern className="col-span-full row-span-full" /> -->
-      <div class="flex flex-col gap-y-8 items-center justify-center col-span-full row-span-full">
+      <div class="col-span-full row-span-full flex flex-col items-center justify-center gap-y-8">
         <HeroHeading />
-        <a
-          href="#contact"
-          class="flex items-center gap-x-2 border border-black pis-4 pie-2 py-2 rounded text-sm font-600"
-        >
+        <BaseLink href="#contact" intent="button-primary">
           Get in touch
           <DoubleChevronRightIcon />
-        </a>
+        </BaseLink>
       </div>
     </section>
 
     <TrialBanner />
 
-    <section class="max-w-1200px px-4 mx-a mbs-18 grid gap-4 justify-items-center">
-      <h2 class="mbe-4 text-center font-gabarito font-800 text-4xl underline">
+    <section class="max-w-1200px mx-a mbs-18 grid justify-items-center gap-4 px-4">
+      <h2 class="mbe-4 font-gabarito font-800 text-center text-4xl">
         De bedoeling van mijn vertalingen is <br /> om vlot en nauwkeurig te zijn
       </h2>
       <p class="max-w-600px text-center">
@@ -46,12 +44,12 @@ const t = useTranslations(lang);
       </p>
     </section>
 
-    <section class="max-w-1200px px-4 mx-a mbs-18 grid gap-4 justify-items-center">
-      <h2 class="mbe-4 font-gabarito text-center text-4xl font-800 underline">Taalcombinaties</h2>
+    <section class="max-w-1200px mx-a mbs-18 grid justify-items-center gap-4 px-4">
+      <h2 class="mbe-4 font-gabarito font-800 text-center text-4xl">Taalcombinaties</h2>
       <TableLanguageCombinations />
 
-      <article class="max-w-800px py-4 px-4 text-sm border-l-6 border border-black rounded mt-4">
-        <h3 class="inline-flex gap-x-2 mb-2 font-500">
+      <article class="max-w-800px border-l-6 border-border mt-4 rounded border px-4 py-4 text-sm">
+        <h3 class="font-500 mb-2 inline-flex gap-x-2">
           <img src={localLogoMemoQ.src} alt="" width={16} height={16} />
            MemoQ translator pro
         </h3>
@@ -59,50 +57,38 @@ const t = useTranslations(lang);
           Ik gebruik de computergestuurde vertaalomgeving <strong>MEMO Q PRO</strong>, een tool
           waarmee ik met een groot aantal documentformaten kan werken en die compatibel is met de
           meeste andere vertaaltools zoals
-          <a
-            href="https://www.trados.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center hover:underline gap-x-1 text-blue"
-          >
+          <BaseLink href="https://www.trados.com/" external>
             SDL Trados <span><ExternalLinkIcon aria-hidden className="stroke-current" /></span>
-          </a>
+          </BaseLink>
           {" "}of{" "}
-          <a
-            href="https://www.trados.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center hover:underline gap-x-1 text-blue"
-          >
+          <BaseLink href="https://www.trados.com/" external>
             Wordfast <span><ExternalLinkIcon aria-hidden className="stroke-current" /></span>
-          </a>
+          </BaseLink>
         </p>
       </article>
     </section>
 
-    <section class="max-w-1200px px-4 mx-a mbs-18 grid gap-4">
-      <h2 class="mbe-4 font-gabarito font-800 text-4xl mbe-2 text-center underline">
+    <section class="max-w-1200px mx-a mbs-18 grid gap-4 px-4">
+      <h2 class="mbe-4 font-gabarito font-800 mbe-2 text-center text-4xl">
         Favoriete gebieden, gebaseerd op mijn <br /> persoonlijke en professionele ervaring
       </h2>
 
       <TranslateFieldsList />
 
-      <article class="max-w-800px py-4 px-4 text-sm border-l-6 border border-black rounded mt-4">
+      <article class="max-w-800px border-l-6 border-border mt-4 rounded border px-4 py-4 text-sm">
         <p class="mb-2">
           Twijfelt u aan de maakbaarheid van de door u gewenste vertaling? (poëzie, volgehouden
           taal, rijke symboliek van de tekst, specifieke termen, enz.)
         </p>
         <p>
           Aarzel dan niet
-          <a class="text-blue font-500 hover:underline hover:underline-blue" href="#contact">
-            om contact op te nemen of vraag een offerte aan.
-          </a>
+          <BaseLink href="#contact">om contact op te nemen of vraag een offerte aan.</BaseLink>
         </p>
       </article>
     </section>
 
-    <section id="about" class="max-w-1200px mx-a grid gap-y-4 mbs-16 px-4">
-      <h2 class="mbe-4 font-gabarito font-800 text-4xl text-center underline">De vertaler</h2>
+    <section id="about" class="max-w-1200px mx-a mbs-16 grid gap-y-4 px-4">
+      <h2 class="mbe-4 font-gabarito font-800 text-center text-4xl">De vertaler</h2>
 
       <p>Freya PALSMA - Gehandicapte freelance professionele vertaler (TIH)</p>
 
@@ -127,30 +113,29 @@ const t = useTranslations(lang);
       </p>
     </section>
 
-    <section id="contact" class="max-w-1200px mx-a grid gap-y-8 my-16 px-4">
-      <h2 class="font-gabarito font-800 text-4xl underline">Contact</h2>
+    <section id="contact" class="max-w-1200px mx-a my-16 grid gap-y-8 px-4">
+      <h2 class="font-gabarito font-800 text-4xl">Contact</h2>
       <p>
         Voel je vrij om contact met me op te nemen via e-mail of om met me te verbinden op LinkedIn.
       </p>
 
-      <div class="justify-self-center flex flex-wrap gap-10">
+      <div class="flex flex-wrap justify-between gap-4">
         <CopyButton content="brainslate@outlook.fr">
           <MailIcon aria-hidden className="w-16px h-16px" />
           <span class="text-sm">brainslate@outlook.fr</span>
           <CopyIcon aria-hidden className="w-16px h-16px" />
         </CopyButton>
 
-        <a
+        <BaseLink
           href="https://www.linkedin.com/in/freya-palsma/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="flex items-center gap-x-1 border border-black rounded px-4 py-2 text-sm"
+          external
+          intent="button-secondary"
         >
           <div class="flex items-center gap-x-1">
             <LinkedInIcon aria-hidden /><span class="text-sm underline">Linkedin</span>
           </div>
           <ExternalLinkIcon aria-hidden className="w-16px h-16px" />
-        </a>
+        </BaseLink>
       </div>
     </section>
   </main>

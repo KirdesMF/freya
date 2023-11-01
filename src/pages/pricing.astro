@@ -1,6 +1,7 @@
 ---
 import { ArrowRightIcon } from "@components/icons/ArrowRightIcon";
 import { ExternalLinkIcon } from "@components/icons/ExternalLinkIcon";
+import BaseLink from "@components/ui/BaseLink.astro";
 import { getLangFromUrl, useTranslations } from "@i18n/utils";
 import BaseLayout from "@layouts/BaseLayout.astro";
 
@@ -9,9 +10,9 @@ const t = useTranslations(lang);
 ---
 
 <BaseLayout title="Brainslate | Prices">
-  <main class="min-h-100dvh mbs-xl">
-    <section class="max-w-1200px mx-a">
-      <h2 class="font-gabarito text-2xl font-800">MES DISPONIBILITÉS</h2>
+  <main class="min-h-100dvh mt-xl max-w-1200px mx-a flex flex-col gap-y-4">
+    <section class="flex flex-col gap-y-2">
+      <h2 class="font-gabarito font-800 text-2xl">Mes disponibilités</h2>
       <ul>
         <li class="flex items-baseline gap-x-2">
           <span><ArrowRightIcon /></span>Réponse devis sous les 6h garantie (de 8h à 18h en semaine)
@@ -23,9 +24,9 @@ const t = useTranslations(lang);
       </ul>
     </section>
 
-    <section id="prices" class="flex flex-col max-w-1200px ma">
+    <section class="flex flex-col gap-y-2">
       <h2 class="font-gabarito font-800 text-2xl">Tarifs</h2>
-      <p class="mb-2">
+      <p>
         La tarification dépend du niveau de technicité et de la complexité du texte ainsi que de la
         combinaison linguistique. Les traductions sont facturées au mot (0,10 à 0,20 euros/mot), la
         facturation est ensuite ajustée en fonction du temps de travail et du délai de livraison
@@ -33,20 +34,18 @@ const t = useTranslations(lang);
         projet !
       </p>
 
-      <p class="mb-2">
+      <p>
         Je suis travailleur indépendant handicapé (TIH): Des dispositifs facilitant l'emploi des
         personnes en situation de handicap existent pour les entreprises. Plus d'informations :
-        <a
+        <BaseLink
           href="https://www.agefiph.fr/employeur#linclusion-de-personnes-handicapees-une-opportunite-rh-a-saisir"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center underline gap-x-1"
+          external
         >
           https://www.agefiph.fr/employeur#linclusion-de-personnes-handicapees-une-opportunite-rh-a-saisir
 
 
           <span><ExternalLinkIcon aria-hidden /></span>
-        </a>
+        </BaseLink>
       </p>
     </section>
   </main>

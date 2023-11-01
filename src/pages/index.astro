@@ -37,7 +37,7 @@ const t = useTranslations(lang);
     <TrialBanner />
 
     <section class="max-w-1200px mx-a mbs-18 grid justify-items-center gap-4 px-4">
-      <h2 class="font-gabarito font-800 mbe-4 text-center text-4xl underline">
+      <h2 class="font-gabarito font-800 mbe-4 text-center text-4xl">
         L'objectif de mes traductions <br /> est qu'elles soient fluides et fidèles
       </h2>
       <p class="max-w-600px text-center">
@@ -48,9 +48,7 @@ const t = useTranslations(lang);
     </section>
 
     <section class="max-w-1200px mx-a mbs-18 grid justify-items-center gap-4 px-4">
-      <h2 class="font-gabarito font-800 mbe-4 text-center text-4xl underline">
-        Combinaisons linguistiques
-      </h2>
+      <h2 class="font-gabarito font-800 mbe-4 text-center text-4xl">Combinaisons linguistiques</h2>
       <TableLanguageCombinations />
 
       <article class="max-w-800px border-l-6 border-border mt-4 rounded border px-4 py-4 text-sm">
@@ -65,18 +63,18 @@ const t = useTranslations(lang);
           formats de documents et compatible avec la plupart des autres outils de traduction, tels
           que
           <BaseLink href="https://www.trados.com/" external>
-            SDL Trados <span><ExternalLinkIcon aria-hidden className="stroke-current" /></span>
+            SDL Trados <ExternalLinkIcon aria-hidden className="stroke-current" />
           </BaseLink>
           {" "}ou{" "}
           <BaseLink href="https://www.trados.com/" external>
-            Wordfast <span><ExternalLinkIcon aria-hidden className="stroke-current" /></span>
+            Wordfast <ExternalLinkIcon aria-hidden className="stroke-current" />
           </BaseLink>
         </p>
       </article>
     </section>
 
     <section class="max-w-1200px mx-a mbs-18 grid gap-4 px-4">
-      <h2 class="font-gabarito font-800 mbe-4 text-center text-4xl underline">
+      <h2 class="font-gabarito font-800 mbe-4 text-center text-4xl">
         Domaines de prédilection basés <br /> sur mon expérience personnelle et professionnelle
       </h2>
 
@@ -89,17 +87,13 @@ const t = useTranslations(lang);
         </p>
         <p>
           N'hésitez pas à
-          <a class="text-blue font-500 hover:underline-blue hover:underline" href="#contact">
-            prendre contact ou demander un devis.
-          </a>
+          <BaseLink href="#contact">prendre contact ou demander un devis.</BaseLink>
         </p>
       </article>
     </section>
 
     <section id="about" class="max-w-1200px mx-a mbs-16 grid gap-y-4 px-4">
-      <h2 class="font-gabarito font-800 mbe-4 text-center text-4xl underline">
-        A propos du traducteur
-      </h2>
+      <h2 class="font-gabarito font-800 mbe-4 text-center text-4xl">A propos du traducteur</h2>
 
       <p>Freya PALSMA - Traducteur professionnel indépendant handicapé (TIH)</p>
 
@@ -126,10 +120,10 @@ const t = useTranslations(lang);
     </section>
 
     <section id="contact" class="max-w-1200px mx-a my-16 grid gap-y-8 px-4">
-      <h2 class="font-gabarito font-800 text-4xl underline">Contact</h2>
+      <h2 class="font-gabarito font-800 text-4xl">Contact</h2>
       <p>N'hésitez pas à me contacter par e-mail ou via LinkedIn.</p>
 
-      <div class="flex flex-wrap gap-10 justify-self-center">
+      <div class="flex flex-wrap justify-between gap-4">
         <CopyButton content="brainslate@outlook.fr">
           <MailIcon aria-hidden className="w-16px h-16px" />
           <span class="text-sm">brainslate@outlook.fr</span>

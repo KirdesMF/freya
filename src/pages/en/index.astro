@@ -13,6 +13,7 @@ import { CopyIcon } from "@components/icons/CopyIcon";
 import { LinkedInIcon } from "@components/icons/LinkedinIcon";
 import TranslateFieldsList from "@components/TranslateFieldsList.astro";
 import { MailIcon } from "@components/icons/MailIcon";
+import BaseLink from "@components/ui/BaseLink.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -24,20 +25,17 @@ const t = useTranslations(lang);
       <!-- <StrokedCirclePattern className="col-span-full row-span-full" /> -->
       <div class="col-span-full row-span-full flex flex-col items-center justify-center gap-y-8">
         <HeroHeading />
-        <a
-          href="#contact"
-          class="pis-4 pie-2 font-600 flex items-center gap-x-2 rounded border border-black py-2 text-sm"
-        >
+        <BaseLink intent="button-primary" href="#contact">
           Get in touch
           <DoubleChevronRightIcon />
-        </a>
+        </BaseLink>
       </div>
     </section>
 
     <TrialBanner />
 
     <section class="max-w-1200px mx-a mbs-18 grid justify-items-center gap-4 px-4">
-      <h2 class="mbe-4 font-gabarito font-800 text-center text-4xl underline">
+      <h2 class="mbe-4 font-gabarito font-800 text-center text-4xl">
         The aim of my translations is for them <br /> to be fluent and faithful.
       </h2>
       <p class="max-w-600px text-center">
@@ -47,64 +45,51 @@ const t = useTranslations(lang);
     </section>
 
     <section class="max-w-1200px mx-a mbs-18 grid justify-items-center gap-4 px-4">
-      <h2 class="mbe-4 font-gabarito font-800 text-center text-4xl underline">Language pairs</h2>
+      <h2 class="mbe-4 font-gabarito font-800 text-center text-4xl">Language pairs</h2>
       <TableLanguageCombinations />
 
-      <article class="max-w-800px border-l-6 mt-4 rounded border border-black px-4 py-4 text-sm">
+      <article class="max-w-800px border-l-6 border-border mt-4 rounded border px-4 py-4 text-sm">
         <h3 class="font-500 mb-2 inline-flex gap-x-2">
           <img src={localLogoMemoQ.src} alt="" width={16} height={16} />
            MemoQ translator pro
         </h3>
+
         <p>
           I use the computer-assisted translation environment <strong>MEMO Q PRO</strong>, a tool
           that allows me to work from many document formats and is compatible with most other
           translation tools.
-          <a
-            href="https://www.trados.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-blue inline-flex items-center gap-x-1 hover:underline"
-          >
-            SDL Trados <span><ExternalLinkIcon aria-hidden className="stroke-current" /></span>
-          </a>
-          {" "}-{" "}
-          <a
-            href="https://www.trados.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-blue inline-flex items-center gap-x-1 hover:underline"
-          >
-            Wordfast <span><ExternalLinkIcon aria-hidden className="stroke-current" /></span>
-          </a>
+          <BaseLink href="https://www.trados.com/" external>
+            SDL Trados <ExternalLinkIcon aria-hidden className="stroke-current" />
+          </BaseLink>
+          {" "}or{" "}
+          <BaseLink href="https://www.trados.com/" external>
+            Wordfast <ExternalLinkIcon aria-hidden className="stroke-current" />
+          </BaseLink>
         </p>
       </article>
     </section>
 
     <section class="max-w-1200px mx-a mbs-18 grid gap-4 px-4">
-      <h2 class="mbe-4 font-gabarito font-800 mbe-2 text-center text-4xl underline">
+      <h2 class="mbe-4 font-gabarito font-800 mbe-2 text-center text-4xl">
         Preferred fields based on my personal and <br /> professional experience
       </h2>
 
       <TranslateFieldsList />
 
-      <article class="max-w-800px border-l-6 mt-4 rounded border border-black px-4 py-4 text-sm">
+      <article class="max-w-800px border-l-6 border-border mt-4 rounded border px-4 py-4 text-sm">
         <p class="mb-2">
           Do you have doubts about the feasibility of the translation you want to request ? (poetry,
           formal register, rich symbolism of the text, specific terms...)
         </p>
         <p>
           Do not hesitate to
-          <a class="text-blue font-500 hover:underline-blue hover:underline" href="#contact">
-            contact me or request a quote.
-          </a>
+          <BaseLink href="#contact">contact me or request a quote.</BaseLink>
         </p>
       </article>
     </section>
 
     <section id="about" class="max-w-1200px mx-a mbs-16 grid gap-y-4 px-4">
-      <h2 class="mbe-4 font-gabarito font-800 text-center text-4xl underline">
-        About the translator
-      </h2>
+      <h2 class="mbe-4 font-gabarito font-800 text-center text-4xl">About the translator</h2>
 
       <p>Freya PALSMA - Professional freelance translator with a disability (TIH)</p>
 
@@ -130,27 +115,26 @@ const t = useTranslations(lang);
     </section>
 
     <section id="contact" class="max-w-1200px mx-a my-16 grid gap-y-8 px-4">
-      <h2 class="font-gabarito font-800 text-4xl underline">Contact</h2>
+      <h2 class="font-gabarito font-800 text-4xl">Contact</h2>
       <p>Feel free to get in touch with me through email or connect with me on LinkedIn.</p>
 
-      <div class="flex flex-wrap gap-10 justify-self-center">
+      <div class="flex flex-wrap justify-between gap-4">
         <CopyButton content="brainslate@outlook.fr">
           <MailIcon aria-hidden className="w-16px h-16px" />
           <span class="text-sm">brainslate@outlook.fr</span>
           <CopyIcon aria-hidden className="w-16px h-16px" />
         </CopyButton>
 
-        <a
+        <BaseLink
           href="https://www.linkedin.com/in/freya-palsma/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="flex items-center gap-x-1 rounded border border-black px-4 py-2 text-sm"
+          external
+          intent="button-secondary"
         >
           <div class="flex items-center gap-x-1">
             <LinkedInIcon aria-hidden /><span class="text-sm underline">Linkedin</span>
           </div>
           <ExternalLinkIcon aria-hidden className="w-16px h-16px" />
-        </a>
+        </BaseLink>
       </div>
     </section>
   </main>
