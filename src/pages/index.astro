@@ -14,28 +14,30 @@ import { LinkedInIcon } from "@components/icons/LinkedinIcon";
 import TranslateFieldsList from "@components/TranslateFieldsList.astro";
 import { MailIcon } from "@components/icons/MailIcon";
 import Link from "@components/Link.astro";
+import BaseLink from "@components/ui/BaseLink.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
 <BaseLayout>
-  <main class="flex flex-col font-inter">
-    <section id="hero" class="grid h-40rem">
-      <StrokedCirclePattern className="col-span-full row-span-full" />
-      <div class="flex flex-col gap-y-8 items-center justify-center col-span-full row-span-full">
+  <main class="font-inter flex flex-col">
+    <section id="hero" class="h-40rem grid">
+      <!-- <StrokedCirclePattern className="col-span-full row-span-full" /> -->
+
+      <div class="col-span-full row-span-full flex flex-col items-center justify-center gap-y-8">
         <HeroHeading />
-        <Link href="#contact" variant="button">
+        <BaseLink href="#contact" intent="button-primary">
           Get in touch
           <DoubleChevronRightIcon />
-        </Link>
+        </BaseLink>
       </div>
     </section>
 
     <TrialBanner />
 
-    <section class="max-w-1200px px-4 mx-a mbs-18 grid gap-4 justify-items-center">
-      <h2 class="text-center font-gabarito font-800 text-4xl underline mbe-4">
+    <section class="max-w-1200px mx-a mbs-18 grid justify-items-center gap-4 px-4">
+      <h2 class="font-gabarito font-800 mbe-4 text-center text-4xl underline">
         L'objectif de mes traductions <br /> est qu'elles soient fluides et fidèles
       </h2>
       <p class="max-w-600px text-center">
@@ -45,70 +47,57 @@ const t = useTranslations(lang);
       </p>
     </section>
 
-    <section class="max-w-1200px px-4 mx-a mbs-18 grid gap-4 justify-items-center">
-      <h2 class="font-gabarito text-center text-4xl font-800 underline mbe-4">
-        Global linguistic reach
+    <section class="max-w-1200px mx-a mbs-18 grid justify-items-center gap-4 px-4">
+      <h2 class="font-gabarito font-800 mbe-4 text-center text-4xl underline">
+        Combinaisons linguistiques
       </h2>
-      <p class="max-w-600px text-center">
-        This table displays my language proficiency and translation capabilities to helping you
-        match the right linguist to your specific language needs.
-      </p>
       <TableLanguageCombinations />
 
-      <article class="max-w-800px py-4 px-4 text-sm border-l-6 border border-border rounded mt-4">
-        <h3 class="inline-flex gap-x-2 mb-2 font-500">
+      <article class="max-w-800px border-l-6 border-border mt-4 rounded border px-4 py-4 text-sm">
+        <h3 class="font-500 mb-2 inline-flex gap-x-2">
           <img src={localLogoMemoQ.src} alt="" width={16} height={16} />
            MemoQ translator pro
         </h3>
+
         <p>
           J'utilise l'environnement de traduction assisté par ordinateur
           <strong>MEMO Q PRO</strong>, outil qui me permets de travailler à partir de nombreux
           formats de documents et compatible avec la plupart des autres outils de traduction, tels
           que
-          <a
-            href="https://www.trados.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center hover:underline gap-x-1 text-blue"
-          >
+          <BaseLink href="https://www.trados.com/" external>
             SDL Trados <span><ExternalLinkIcon aria-hidden className="stroke-current" /></span>
-          </a>
+          </BaseLink>
           {" "}ou{" "}
-          <a
-            href="https://www.trados.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center hover:underline gap-x-1 text-blue"
-          >
+          <BaseLink href="https://www.trados.com/" external>
             Wordfast <span><ExternalLinkIcon aria-hidden className="stroke-current" /></span>
-          </a>
+          </BaseLink>
         </p>
       </article>
     </section>
 
-    <section class="max-w-1200px px-4 mx-a mbs-18 grid gap-4">
-      <h2 class="font-gabarito font-800 text-4xl mbe-4 text-center underline">
+    <section class="max-w-1200px mx-a mbs-18 grid gap-4 px-4">
+      <h2 class="font-gabarito font-800 mbe-4 text-center text-4xl underline">
         Domaines de prédilection basés <br /> sur mon expérience personnelle et professionnelle
       </h2>
 
       <TranslateFieldsList />
 
-      <article class="max-w-800px py-4 px-4 text-sm border-l-6 border border-border rounded mt-4">
+      <article class="max-w-800px border-l-6 border-border mt-4 rounded border px-4 py-4 text-sm">
         <p class="mb-2">
           Avez-vous des doutes sur la faisabilité de la traduction que vous souhaitez demander ?
           (poésie, registre soutenu, symbolique riche du texte, termes spécifiques…)
         </p>
         <p>
           N'hésitez pas à
-          <a class="text-blue font-500 hover:underline hover:underline-blue" href="#contact">
+          <a class="text-blue font-500 hover:underline-blue hover:underline" href="#contact">
             prendre contact ou demander un devis.
           </a>
         </p>
       </article>
     </section>
 
-    <section id="about" class="max-w-1200px mx-a grid gap-y-4 mbs-16 px-4">
-      <h2 class="font-gabarito font-800 text-4xl text-center underline mbe-4">
+    <section id="about" class="max-w-1200px mx-a mbs-16 grid gap-y-4 px-4">
+      <h2 class="font-gabarito font-800 mbe-4 text-center text-4xl underline">
         A propos du traducteur
       </h2>
 
@@ -136,28 +125,27 @@ const t = useTranslations(lang);
       </p>
     </section>
 
-    <section id="contact" class="max-w-1200px mx-a grid gap-y-8 my-16 px-4">
+    <section id="contact" class="max-w-1200px mx-a my-16 grid gap-y-8 px-4">
       <h2 class="font-gabarito font-800 text-4xl underline">Contact</h2>
       <p>N'hésitez pas à me contacter par e-mail ou via LinkedIn.</p>
 
-      <div class="justify-self-center flex flex-wrap gap-10">
+      <div class="flex flex-wrap gap-10 justify-self-center">
         <CopyButton content="brainslate@outlook.fr">
-          <MailIcon aria-hidden />
+          <MailIcon aria-hidden className="w-16px h-16px" />
           <span class="text-sm">brainslate@outlook.fr</span>
           <CopyIcon aria-hidden className="w-16px h-16px" />
         </CopyButton>
 
-        <a
+        <BaseLink
+          intent="button-secondary"
           href="https://www.linkedin.com/in/freya-palsma/"
           target="_blank"
           rel="noopener noreferrer"
-          class="flex items-center gap-x-1 border border-border rounded px-4 py-2 text-sm"
         >
-          <div class="flex items-center gap-x-1">
-            <LinkedInIcon aria-hidden /><span class="text-sm underline">Linkedin</span>
-          </div>
+          <LinkedInIcon aria-hidden />
+          <span class="text-sm underline">Linkedin</span>
           <ExternalLinkIcon aria-hidden className="w-16px h-16px" />
-        </a>
+        </BaseLink>
       </div>
     </section>
   </main>

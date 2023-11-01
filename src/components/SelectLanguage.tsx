@@ -12,13 +12,16 @@ const LANGUAGES = [
 const lang = getLangFromUrl(new URL(window.location.href));
 const translatePath = useTranslatedPath(lang);
 
-const defaultLang = "fr" as const;
-const currentLang = LANGUAGES.find((lang) => lang.code === defaultLang)?.name;
-
 export function SelectLanguage() {
-  function onChange(lang: string) {
+  function onChange(lang: "fr" | "en" | "nl") {
     const [_leadingSlash, _oldLang, ...rest] = window.location.pathname.split("/");
-    const slug = rest.join("/");
+
+    // TODO: find a more robust way to handle this
+    if (lang !== "fr" && rest.length === 0) {
+      rest.push(_oldLang);
+    }
+
+    const slug = `/${rest.join("/")}`;
     window.location.pathname = translatePath(slug, lang);
   }
 

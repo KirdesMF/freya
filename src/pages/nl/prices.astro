@@ -1,4 +1,5 @@
 ---
+import { ArrowRightIcon } from "@components/icons/ArrowRightIcon";
 import { ExternalLinkIcon } from "@components/icons/ExternalLinkIcon";
 import { getLangFromUrl, useTranslations } from "@i18n/utils";
 import BaseLayout from "@layouts/BaseLayout.astro";
@@ -9,25 +10,42 @@ const t = useTranslations(lang);
 
 <BaseLayout title="Brainslate | Prices">
   <main class="min-h-100dvh">
-    <article class="max-w-2xl mx-a">
-      <h2 class="font-gabarito text-2xl font-800">{t("disposability.title")}</h2>
-      <p>➡️ {t("disposability.answer")}</p>
-      <p>➡️ {t("disposability.delivery")}</p>
-    </article>
+    <section class="max-w-2xl mx-a">
+      <h2 class="font-gabarito text-2xl font-800">MIJN BESCHIKBAARHEID</h2>
+      <ul>
+        <li class="flex items-baseline gap-x-2">
+          <span><ArrowRightIcon /></span>
+           Gegarandeerd antwoord op offerte binnen 6 uur (van 8 tot 18 uur op werkdagen)
+        </li>
+        <li class="flex items-baseline gap-x-2">
+          <span><ArrowRightIcon /></span>
+           Expresslevering binnen 72 uur tot 1600 woorden (afhankelijk van
+          beschikbaarheid/uitgezonderd proefaanbieding)
+        </li>
+      </ul>
+    </section>
 
     <section id="prices" class="flex flex-col max-w-2xl ma">
-      <h2 class="font-gabarito font-800 text-2xl">{t("prices.title")}</h2>
-      <p class="mb-2">{t("prices.description")}</p>
+      <h2 class="font-gabarito font-800 text-2xl">TARIEVEN</h2>
+      <p class="mb-2">
+        Tarieven zijn afhankelijk van de techniciteit en complexiteit van de tekst en de
+        talencombinatie. Vertalingen worden gefactureerd per woord (van 0,10 tot 0,20 euro/woord),
+        en de facturatie wordt vervolgens aangepast volgens de benodigde tijd en de gevraagde
+        leverdatum. Aarzel niet om contact met me op te nemen voor een offerte of om de haalbaarheid
+        van je project te controleren!
+      </p>
 
       <p class="mb-2">
-        {t("prices.tih")}
+        Ik ben een gehandicapte zelfstandige: Er bestaan in Frankrijk een aantal regelingen om
+        bedrijven te helpen gehandicapten in dienst te nemen. Voor meer informatie:
         <a
           href="https://www.agefiph.fr/employeur#linclusion-de-personnes-handicapees-une-opportunite-rh-a-saisir"
           target="_blank"
           rel="noopener noreferrer"
           class="inline-flex items-center underline gap-x-1"
         >
-          {t("prices.link")}
+          https://www.agefiph.fr/employeur#linclusion-de-personnes-handicapees-une-opportunite-rh-a-saisir
+
           <span><ExternalLinkIcon aria-hidden /></span>
         </a>
       </p>
