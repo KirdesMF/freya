@@ -1,15 +1,34 @@
 ---
-import { getLangFromUrl, useTranslatedPath } from "@i18n/utils";
+import { getLangFromUrl, useTranslatedPath, useTranslations } from "@i18n/utils";
+import { VercelIcon } from "./icons/VercelIcon";
 const currentYear = new Date().getFullYear();
 const lang = getLangFromUrl(Astro.url);
 const translatePath = useTranslatedPath(lang);
+const t = useTranslations(lang);
 ---
 
-<footer class="px-10 py-6 border-t flex items-center justify-around">
+<footer class="flex items-center justify-around border-t px-10 py-6">
   <p class="text-sm">
     &copy; {currentYear},
-    <span class="font-gabarito">Brainslate</span>
+    <span class="font-gabarito">Brainslate E.I.</span>
+    <span class="font-300 text-xs"> Siret 98003476300014</span>
   </p>
 
-  <a href={translatePath("/conditions")} class="text-xs font-300 underline">Conditions générales</a>
+  <nav class="h-20px flex items-center gap-x-2">
+    <a href={translatePath("/conditions")} class="font-300 text-xs hover:underline">
+      {t("conditions")}
+    </a>
+
+    <div role="separator" class="w-1px bg-accent h-full"></div>
+
+    <a
+      href="https://vercel.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="font-300 inline-flex items-center gap-x-1 text-xs hover:underline"
+    >
+      {t("host")}
+      <span><VercelIcon /></span>
+    </a>
+  </nav>
 </footer>

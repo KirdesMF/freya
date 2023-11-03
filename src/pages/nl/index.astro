@@ -1,7 +1,6 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { getLangFromUrl, useTranslations } from "@i18n/utils";
-import { StrokedCirclePattern } from "@components/StrokedCirclePattern";
 import TableLanguageCombinations from "@components/TableLanguageCombinations.astro";
 import { ExternalLinkIcon } from "@components/icons/ExternalLinkIcon";
 import localLogoMemoQ from "../../images/logo-q.svg";
@@ -22,11 +21,10 @@ const t = useTranslations(lang);
 <BaseLayout>
   <main class="font-inter flex flex-col">
     <section id="hero" class="h-40rem grid">
-      <!-- <StrokedCirclePattern className="col-span-full row-span-full" /> -->
       <div class="col-span-full row-span-full flex flex-col items-center justify-center gap-y-8">
         <HeroHeading />
         <BaseLink href="#contact" intent="button-primary">
-          Get in touch
+          Contact
           <DoubleChevronRightIcon />
         </BaseLink>
       </div>
@@ -45,7 +43,7 @@ const t = useTranslations(lang);
     </section>
 
     <section class="max-w-1200px mx-a mbs-18 grid justify-items-center gap-4 px-4">
-      <h2 class="mbe-4 font-gabarito font-800 text-center text-4xl">Taalcombinaties</h2>
+      <h2 class="mbe-4 font-gabarito font-800 text-center text-4xl">Taal combinaties</h2>
       <TableLanguageCombinations />
 
       <article class="max-w-800px border-l-6 border-border mt-4 rounded border px-4 py-4 text-sm">
@@ -56,14 +54,7 @@ const t = useTranslations(lang);
         <p>
           Ik gebruik de computergestuurde vertaalomgeving <strong>MEMO Q PRO</strong>, een tool
           waarmee ik met een groot aantal documentformaten kan werken en die compatibel is met de
-          meeste andere vertaaltools zoals
-          <BaseLink href="https://www.trados.com/" external>
-            SDL Trados <span><ExternalLinkIcon aria-hidden className="stroke-current" /></span>
-          </BaseLink>
-          {" "}of{" "}
-          <BaseLink href="https://www.trados.com/" external>
-            Wordfast <span><ExternalLinkIcon aria-hidden className="stroke-current" /></span>
-          </BaseLink>
+          meeste andere vertaaltools (zoals SDL TRADOS of WORDFAST).
         </p>
       </article>
     </section>
@@ -115,9 +106,6 @@ const t = useTranslations(lang);
 
     <section id="contact" class="max-w-1200px mx-a my-16 grid gap-y-8 px-4">
       <h2 class="font-gabarito font-800 text-4xl">Contact</h2>
-      <p>
-        Voel je vrij om contact met me op te nemen via e-mail of om met me te verbinden op LinkedIn.
-      </p>
 
       <div class="flex flex-wrap justify-between gap-4">
         <CopyButton content="brainslate@outlook.fr">

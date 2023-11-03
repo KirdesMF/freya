@@ -1,7 +1,6 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { getLangFromUrl, useTranslations } from "@i18n/utils";
-import { StrokedCirclePattern } from "@components/StrokedCirclePattern";
 import TableLanguageCombinations from "@components/TableLanguageCombinations.astro";
 import { ExternalLinkIcon } from "@components/icons/ExternalLinkIcon";
 import localLogoMemoQ from "../../images/logo-q.svg";
@@ -22,7 +21,6 @@ const t = useTranslations(lang);
 <BaseLayout>
   <main class="font-inter flex flex-col">
     <section id="hero" class="h-40rem grid">
-      <!-- <StrokedCirclePattern className="col-span-full row-span-full" /> -->
       <div class="col-span-full row-span-full flex flex-col items-center justify-center gap-y-8">
         <HeroHeading />
         <BaseLink intent="button-primary" href="#contact">
@@ -57,14 +55,7 @@ const t = useTranslations(lang);
         <p>
           I use the computer-assisted translation environment <strong>MEMO Q PRO</strong>, a tool
           that allows me to work from many document formats and is compatible with most other
-          translation tools.
-          <BaseLink href="https://www.trados.com/" external>
-            SDL Trados <ExternalLinkIcon aria-hidden className="stroke-current" />
-          </BaseLink>
-          {" "}or{" "}
-          <BaseLink href="https://www.trados.com/" external>
-            Wordfast <ExternalLinkIcon aria-hidden className="stroke-current" />
-          </BaseLink>
+          translation tools (such as SDL TRADOS or WORDFAST).
         </p>
       </article>
     </section>
@@ -79,8 +70,7 @@ const t = useTranslations(lang);
       <article class="max-w-800px border-l-6 border-border mt-4 rounded border px-4 py-4 text-sm">
         <p class="mb-2">
           Do you want to ensure the feasibility of the translation you would like to request?
-          (poetry, sustained language, highly symbolic text, specific terms, etc.) to make contact
-          or ask for a quotation.
+          (poetry, sustained language, highly symbolic text, specific terms, etc.)
         </p>
         <p>
           Please do not hesitate
