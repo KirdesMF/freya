@@ -5,10 +5,11 @@ import { ArrowRightIcon } from "./icons/ArrowRightIcon";
 const lang = getLangFromUrl(Astro.url);
 
 const en = [
-  "International trade, Import-export, Sales administration",
-  "Transport, Logistics, transport documents",
+  "International trade, Import-export, Sales administration/Customer service",
+  "Transport, logistics, shipping documents",
   "Health, Medicine, Anatomy, Biology, Diseases, Maternity, Pediatrics",
-  "Tourism, Hospitality, Reception",
+  "Tourism, Catering industry, Reception",
+  "Business and private correspondence, administrative letters, résumés",
 ];
 
 const fr = [
@@ -16,19 +17,21 @@ const fr = [
   "Transport, Logistique, documents de transport",
   "Santé, Médecine, Anatomie, Biologie, Maladies, Maternité, Pédiatrie",
   "Tourisme, Hôtellerie, Accueil",
+  "Correspondances professionnelles et personnelles, lettres administratives, Cvs",
 ];
 
 const nl = [
   "Internationale handel, Import-export, Verkoopadministratie",
-  "Transport, Logistiek, transportdocumenten",
-  "Gezondheid, Geneeskunde, Anatomie, Biologie, Ziekten, Zwangerschap, Pediatrie",
+  "Transport, Logistiek, Vervoersdocumenten",
+  "Gezondheid, Geneeskunde, Anatomie, Biologie, Ziekten, Moederschap, Kindergeneeskunde",
   "Toerisme, Horeca, Receptie",
+  "Zakelijke en persoonlijke correspondentie, administratieve brieven, CV's",
 ];
 
 const FIELDS = { en, fr, nl };
 ---
 
-<ul class="px-10 grid gap-y-2">
+<ul class="grid gap-y-2 px-10">
   {
     FIELDS[lang].map((field) => (
       <li class="flex items-center gap-x-1">
