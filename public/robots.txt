@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://brainslate.fr/sitemap-index.xml
