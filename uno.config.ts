@@ -46,4 +46,5 @@ export default defineConfig({
       DEFAULT: "var(--radius)",
     },
   },
+  rules: [[/^container-(\d+)$/, ([_, num]) => ({ "inline-size": `min(${num}px, 100%)` })]],
 });

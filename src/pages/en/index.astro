@@ -1,33 +1,34 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { getLangFromUrl, useTranslations } from "@i18n/utils";
 import TableLanguageCombinations from "@components/TableLanguageCombinations.astro";
-import { ExternalLinkIcon } from "@components/icons/ExternalLinkIcon";
 import localLogoMemoQ from "../../images/logo-q.svg";
 import HeroHeading from "@components/HeroHeading.astro";
-import { DoubleChevronRightIcon } from "@components/icons/DoubleChevronRightIcon";
 import TrialBanner from "@components/TrialBanner.astro";
 import CopyButton from "@components/CopyButton.astro";
-import { CopyIcon } from "@components/icons/CopyIcon";
-import { LinkedInIcon } from "@components/icons/LinkedinIcon";
 import TranslateFieldsList from "@components/TranslateFieldsList.astro";
-import { MailIcon } from "@components/icons/MailIcon";
-import BaseLink from "@components/ui/BaseLink.astro";
-
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+import { ExternalLinkIcon } from "@components/icons/ExternalLinkIcon";
+import { DoubleChevronRightIcon } from "@components/icons/DoubleChevronRightIcon";
+import { LinkedInIcon } from "@components/icons/LinkedinIcon";
+import { ButtonLink } from "@components/ui/ButtonLink";
+import { Badge } from "@components/ui/Badge";
+import { Link } from "@components/ui/Link";
 ---
 
 <BaseLayout>
   <main class="font-inter flex flex-col">
-    <section id="hero" class="h-40rem grid">
-      <div class="col-span-full row-span-full flex flex-col items-center justify-center gap-y-8">
-        <HeroHeading />
-        <BaseLink intent="button-primary" href="#contact">
-          Get in touch
-          <DoubleChevronRightIcon />
-        </BaseLink>
+    <section id="hero" class="container-900 mx-a grid place-items-center gap-y-8 py-20">
+      <HeroHeading />
+
+      <div class="flex gap-2">
+        <Badge intent="blue">French</Badge>
+        <Badge intent="green">English</Badge>
+        <Badge intent="orange">Dutch</Badge>
       </div>
+
+      <ButtonLink intent="primary">
+        <span>Contact</span>
+        <DoubleChevronRightIcon aria-hidden />
+      </ButtonLink>
     </section>
 
     <TrialBanner />
@@ -74,7 +75,7 @@ const t = useTranslations(lang);
         </p>
         <p>
           Please do not hesitate
-          <BaseLink href="#contact">to make contact or ask for a quotation.</BaseLink>
+          <Link href="#contact">to make contact or ask for a quotation.</Link>
         </p>
       </article>
     </section>
@@ -111,16 +112,12 @@ const t = useTranslations(lang);
       <div class="flex flex-wrap justify-between gap-4">
         <CopyButton />
 
-        <BaseLink
-          href="https://www.linkedin.com/in/freya-palsma/"
-          external
-          intent="button-secondary"
-        >
+        <ButtonLink href="https://www.linkedin.com/in/freya-palsma/" external>
           <div class="flex items-center gap-x-1">
             <LinkedInIcon aria-hidden /><span class="text-sm underline">Linkedin</span>
           </div>
           <ExternalLinkIcon aria-hidden className="w-16px h-16px" />
-        </BaseLink>
+        </ButtonLink>
       </div>
     </section>
   </main>

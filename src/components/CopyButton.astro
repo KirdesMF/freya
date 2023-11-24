@@ -1,8 +1,8 @@
 ---
 import { getLangFromUrl, useTranslations } from "@i18n/utils";
-import Button from "./Button.astro";
 import { CopyIcon } from "./icons/CopyIcon";
 import { MailIcon } from "./icons/MailIcon";
+import { Button } from "./ui/Button";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);

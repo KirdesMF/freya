@@ -1,57 +1,60 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { getLangFromUrl, useTranslations } from "@i18n/utils";
 import TableLanguageCombinations from "@components/TableLanguageCombinations.astro";
-import { ExternalLinkIcon } from "@components/icons/ExternalLinkIcon";
-import localLogoMemoQ from "../images/logo-q.svg";
 import HeroHeading from "@components/HeroHeading.astro";
-import { DoubleChevronRightIcon } from "@components/icons/DoubleChevronRightIcon";
 import TrialBanner from "@components/TrialBanner.astro";
 import CopyButton from "@components/CopyButton.astro";
-import { CopyIcon } from "@components/icons/CopyIcon";
-import { LinkedInIcon } from "@components/icons/LinkedinIcon";
 import TranslateFieldsList from "@components/TranslateFieldsList.astro";
-import { MailIcon } from "@components/icons/MailIcon";
-import BaseLink from "@components/ui/BaseLink.astro";
-
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+import localLogoMemoQ from "../images/logo-q.svg";
+import { ExternalLinkIcon } from "@components/icons/ExternalLinkIcon";
+import { DoubleChevronRightIcon } from "@components/icons/DoubleChevronRightIcon";
+import { LinkedInIcon } from "@components/icons/LinkedinIcon";
+import { ButtonLink } from "@components/ui/ButtonLink";
+import { Link } from "@components/ui/Link";
+import { Badge } from "@components/ui/Badge";
 ---
 
 <BaseLayout>
-  <main class="font-inter flex flex-col">
-    <section id="hero" class="h-40rem grid">
-      <div class="col-span-full row-span-full flex flex-col items-center justify-center gap-y-8">
-        <HeroHeading />
-        <BaseLink href="#contact" intent="button-primary">
-          Contact
-          <DoubleChevronRightIcon />
-        </BaseLink>
+  <main>
+    <section id="hero" class="container-900 mx-a grid place-items-center gap-y-8 py-20">
+      <HeroHeading />
+
+      <div class="flex gap-2">
+        <Badge intent="blue">Français</Badge>
+        <Badge intent="green">Anglais</Badge>
+        <Badge intent="orange">Néerlandais</Badge>
       </div>
+
+      <ButtonLink intent="primary">
+        <span>Contact</span>
+        <DoubleChevronRightIcon aria-hidden />
+      </ButtonLink>
     </section>
 
     <TrialBanner />
 
-    <section class="max-w-1200px mx-a mbs-18 grid justify-items-center gap-4 px-4">
-      <h2 class="font-gabarito font-800 mbe-4 text-center text-4xl">
+    <section class="container-1200 mx-a mbs-18 px-4">
+      <h2 class="font-gabarito font-800 mbe-4 text-4xl">
         L'objectif de mes traductions <br /> est qu'elles soient fluides et fidèles
       </h2>
-      <p class="max-w-600px text-center">
+
+      <p>
         En m'appliquant à déterminer le terme le plus précis et approprié dans chaque contexte, mon
         intention est que la traduction conserve le <strong>même impact</strong> que le texte
         original.
       </p>
     </section>
 
-    <section class="max-w-1200px mx-a mbs-18 grid justify-items-center gap-4 px-4">
+    <section class="container-1200 mx-a mbs-18 grid justify-items-center gap-4 px-4">
       <h2 class="font-gabarito font-800 mbe-4 text-center text-4xl">Combinaisons linguistiques</h2>
+
       <TableLanguageCombinations />
 
-      <article class="max-w-800px border-l-6 border-border mt-4 rounded border px-4 py-4 text-sm">
-        <h3 class="font-500 mb-2 inline-flex gap-x-2">
+      <article class="border-l-6 border-border rounded border px-4 py-4 text-sm">
+        <p class="font-500 mb-2 inline-flex gap-x-2">
           <img src={localLogoMemoQ.src} alt="" width={16} height={16} />
            MemoQ translator pro
-        </h3>
+        </p>
 
         <p>
           J'utilise l'environnement de traduction assisté par ordinateur
@@ -62,68 +65,71 @@ const t = useTranslations(lang);
       </article>
     </section>
 
-    <section class="max-w-1200px mx-a mbs-18 grid gap-4 px-4">
-      <h2 class="font-gabarito font-800 mbe-4 text-center text-4xl">
+    <section class="container-1200 mx-a mbs-18 grid gap-4 px-4">
+      <h2 class="font-gabarito font-800 text-4xl">
         Domaines de prédilection basés <br /> sur mon expérience personnelle et professionnelle
       </h2>
 
       <TranslateFieldsList />
 
-      <article class="max-w-800px border-l-6 border-border mt-4 rounded border px-4 py-4 text-sm">
+      <article class="border-l-6 border-border rounded border px-4 py-4 text-sm">
         <p class="mb-2">
           Avez-vous des doutes sur la faisabilité de la traduction que vous souhaitez demander ?
           (poésie, registre soutenu, symbolique riche du texte, termes spécifiques…)
         </p>
+
         <p>
           N'hésitez pas à
-          <BaseLink href="#contact">prendre contact ou demander un devis.</BaseLink>
+          <Link href="#contact">prendre contact ou demander un devis.</Link>
         </p>
       </article>
     </section>
 
-    <section id="about" class="max-w-1200px mx-a mbs-16 grid gap-y-4 px-4">
-      <h2 class="font-gabarito font-800 mbe-4 text-center text-4xl">A propos du traducteur</h2>
+    <section id="about" class="container-1200 mx-a mbs-16 grid gap-y-4 px-4">
+      <h2 class="font-gabarito font-800 text-4xl">A propos du traducteur</h2>
 
       <p>Freya PALSMA - Traducteur professionnel indépendant handicapé (TIH)</p>
 
-      <p class="max-w-800px mx-a">
+      <p>
         Née et éduquée en France mais d'origine néerlandaise, j'ai appris à traduire en apprenant à
         parler; le français à l'école, le néerlandais à la maison. J'ai ensuite eu l'opportunité
         d'apprendre l'anglais couramment en suivant une année de ma scolarité en Angleterre et en
         poursuivant cet apprentissage en section internationale au collège jusqu'à l'obtention du
-        Baccalauréat (OIB/BFI) dans un lycée international en France. J'ai pu depuis pratiquer et
-        enrichir ces langues professionnellement en entreprise ; j'ai travaillé pendant trois années
-        dans l'hôtellerie et deux années pour un prestataire de logistique international, avec comme
-        contact quotidien les collaborateurs et clients du BeNeLux.
+        Baccalauréat (OIB/BFI) dans un lycée international en France.
       </p>
 
-      <p class="max-w-800px mx-a">
+      <p>
+        J'ai pu depuis pratiquer et enrichir ces langues professionnellement en entreprise, j'ai
+        travaillé pendant trois années dans l'hôtellerie et deux années pour un prestataire de
+        logistique international, avec comme contact quotidien les collaborateurs et clients du
+        BeNeLux.
+      </p>
+
+      <p>
         Ayant déclaré une maladie neurologique rare à l'age adulte, le manque d'informations et de
         recherches disponibles en français sur cette pathologie m'a fait découvrir qu'avoir accès à
         la traduction ne permet pas seulement la communication entre deux communautés linguistiques
         ou le commerce international, mais facilite surtout le partage d'informations et
-        l'enrichissement de sa culture individuelle. <br />
-         Traduire est devenu pour moi un réflexe, et pouvoir aujourd'hui vous proposer ce service
+        l'enrichissement de sa culture individuelle.
+      </p>
+
+      <p>
+        Traduire est devenu pour moi un réflexe, et pouvoir aujourd'hui vous proposer ce service
         représente une grande satisfaction.
       </p>
     </section>
 
-    <section id="contact" class="max-w-1200px mx-a my-16 grid gap-y-8 px-4">
+    <section id="contact" class="container-1200 mx-a my-16 grid gap-y-8 px-4">
       <h2 class="font-gabarito font-800 text-4xl">Contact</h2>
 
       <div class="flex flex-wrap justify-between gap-4">
         <CopyButton />
 
-        <BaseLink
-          intent="button-secondary"
-          href="https://www.linkedin.com/in/freya-palsma/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <ButtonLink href="https://www.linkedin.com/in/freya-palsma/" external>
           <LinkedInIcon aria-hidden />
-          <span class="text-sm underline">Linkedin</span>
+          <span>Linkedin</span>
           <ExternalLinkIcon aria-hidden className="w-16px h-16px" />
-        </BaseLink>
+        </ButtonLink>
       </div>
     </section>
   </main>

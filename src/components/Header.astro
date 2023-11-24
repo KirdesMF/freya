@@ -15,8 +15,10 @@ const LINKS = [
 ];
 ---
 
-<header class="font-inter border-b-border sticky top-0 w-full border-b px-12 py-6 backdrop-blur-sm">
-  <nav class="gap-x-2xl max-w-1200px mx-a flex justify-between">
+<header
+  class="font-inter border-b-border h-80px sticky top-0 grid content-center border-b px-12 backdrop-blur-sm"
+>
+  <nav class="gap-x-2xl max-w-1200px mx-a flex w-full justify-between">
     <div class="gap-x-sm flex">
       <a
         href={translatePath("/")}
@@ -30,10 +32,7 @@ const LINKS = [
       <div class="gap-x-sm flex items-center">
         {
           LINKS.map(({ href, label }) => (
-            <a
-              href={translatePath(href)}
-              class="text-foreground hover:text-foreground/40 font-gabarito font-450"
-            >
+            <a href={translatePath(href)} class="text-foreground hover:text-primary text-sm">
               {label}
             </a>
           ))

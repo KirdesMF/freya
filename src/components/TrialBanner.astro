@@ -1,8 +1,7 @@
 ---
 import { getLangFromUrl, useTranslatedPath } from "@i18n/utils";
 import { DoubleChevronRightIcon } from "./icons/DoubleChevronRightIcon";
-import Link from "./Link.astro";
-import BaseLink from "./ui/BaseLink.astro";
+import { ButtonLink } from "./ui/ButtonLink";
 
 const lang = getLangFromUrl(Astro.url);
 const translatePath = useTranslatedPath(lang);
@@ -21,10 +20,10 @@ const translatePath = useTranslatedPath(lang);
         <p>
           For your first <span class="font-700">250</span> words.
         </p>
-        <Link href={translatePath("/pricing")}>
+        <ButtonLink href={translatePath("/pricing")}>
           More
           <DoubleChevronRightIcon />
-        </Link>
+        </ButtonLink>
       </Fragment>
     )
   }
@@ -35,10 +34,10 @@ const translatePath = useTranslatedPath(lang);
         <p>
           Pour vos premiers <span class="font-700">250</span> mots.
         </p>
-        <BaseLink intent="button-secondary" href={translatePath("/pricing")}>
+        <ButtonLink href={translatePath("/pricing")}>
           En savoir plus
           <DoubleChevronRightIcon />
-        </BaseLink>
+        </ButtonLink>
       </Fragment>
     )
   }
@@ -49,10 +48,10 @@ const translatePath = useTranslatedPath(lang);
         <p>
           Voor uw eerste <span class="font-700">250</span> woorden.
         </p>
-        <Link href={translatePath("/pricing")}>
+        <ButtonLink href={translatePath("/pricing")}>
           Meer weten
           <DoubleChevronRightIcon />
-        </Link>
+        </ButtonLink>
       </Fragment>
     )
   }
