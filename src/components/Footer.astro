@@ -7,34 +7,42 @@ const translatePath = useTranslatedPath(lang);
 const t = useTranslations(lang);
 ---
 
-<footer class="border-border flex items-center justify-around border-t px-10 py-6">
-  <p class="font-300 text-xs">
-    &copy; {currentYear},
-    <span class="font-gabarito">Brainslate E.I.</span>
-    <span> Siret 98003476300014</span>
-  </p>
+<footer class="border-border border-t px-10 py-6">
+  <div class="flex flex-wrap items-center gap-4 md:justify-around">
+    <p class="font-300 text-xs">
+      &copy; {currentYear},
+      <span class="font-gabarito">Brainslate E.I.</span>
+      <span> Siret 98003476300014</span>
+    </p>
 
-  <nav class="h-20px flex items-center gap-x-2">
-    <a href={translatePath("/conditions")} class="font-300 text-xs hover:underline">
-      {t("conditions")}
-    </a>
+    <nav class="flex flex-wrap items-center gap-2">
+      <a
+        href={translatePath("/conditions")}
+        class="font-300 whitespace-nowrap text-xs hover:underline"
+      >
+        {t("conditions")}
+      </a>
 
-    <div role="separator" class="w-1px bg-accent h-full"></div>
+      <div role="separator" class="w-1px bg-accent h-20px"></div>
 
-    <a href={translatePath("/privacy")} class="font-300 text-xs hover:underline">
-      {t("privacy")}
-    </a>
+      <a
+        href={translatePath("/privacy")}
+        class="font-300 whitespace-nowrap text-xs hover:underline"
+      >
+        {t("privacy")}
+      </a>
 
-    <div role="separator" class="w-1px bg-accent h-full"></div>
+      <div role="separator" class="w-1px bg-accent h-20px"></div>
 
-    <a
-      href="https://vercel.com/"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="font-300 inline-flex items-center gap-x-1 text-xs hover:underline"
-    >
-      {t("host")}
-      <span><VercelIcon /></span>
-    </a>
-  </nav>
+      <a
+        href="https://vercel.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="font-300 inline-flex items-center gap-x-1 whitespace-nowrap text-xs hover:underline"
+      >
+        {t("host")}
+        <span><VercelIcon /></span>
+      </a>
+    </nav>
+  </div>
 </footer>
