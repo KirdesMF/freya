@@ -1,6 +1,5 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { getLangFromUrl, useTranslations } from "@i18n/utils";
 import TableLanguageCombinations from "@components/TableLanguageCombinations.astro";
 import { ExternalLinkIcon } from "@components/icons/ExternalLinkIcon";
 import localLogoMemoQ from "../../images/logo-q.svg";
@@ -8,49 +7,55 @@ import HeroHeading from "@components/HeroHeading.astro";
 import { DoubleChevronRightIcon } from "@components/icons/DoubleChevronRightIcon";
 import TrialBanner from "@components/TrialBanner.astro";
 import CopyButton from "@components/CopyButton.astro";
-import { CopyIcon } from "@components/icons/CopyIcon";
 import { LinkedInIcon } from "@components/icons/LinkedinIcon";
 import TranslateFieldsList from "@components/TranslateFieldsList.astro";
 import { MailIcon } from "@components/icons/MailIcon";
-import BaseLink from "@components/ui/BaseLink.astro";
-
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+import { IconLink } from "@components/ui/IconLink";
+import { Link } from "@components/ui/Link";
+import { Badge } from "@components/ui/Badge";
 ---
 
 <BaseLayout>
-  <main class="font-inter flex flex-col">
-    <section id="hero" class="h-40rem grid">
-      <div class="col-span-full row-span-full flex flex-col items-center justify-center gap-y-8">
-        <HeroHeading />
-        <BaseLink href="#contact" intent="button-primary">
-          Contact
-          <DoubleChevronRightIcon />
-        </BaseLink>
+  <main>
+    <section id="hero" class="container-900 mx-a grid place-items-center gap-y-8 py-20">
+      <HeroHeading />
+
+      <div class="flex gap-2">
+        <Badge intent="blue">Frankrijk</Badge>
+        <Badge intent="green">Engels</Badge>
+        <Badge intent="orange">Nederlands</Badge>
       </div>
+
+      <Link intent="primary-btn" href="#contact">
+        <span>Contact</span>
+        <DoubleChevronRightIcon aria-hidden />
+      </Link>
     </section>
 
     <TrialBanner />
 
-    <section class="max-w-1200px mx-a mbs-18 grid justify-items-center gap-4 px-4">
-      <h2 class="mbe-4 font-gabarito font-800 text-center text-4xl">
-        De bedoeling van mijn vertalingen is <br /> om vlot en nauwkeurig te zijn
+    <section class="container-900 mx-a mbs-18 px-4 text-center">
+      <h2 class="font-gabarito font-800 mbe-4 text-4xl">
+        De bedoeling van mijn vertalingen is <br /> om vlot en nauwkeurig te zijn.
       </h2>
-      <p class="max-w-600px text-center">
+
+      <p>
         Door in elke context de meest precieze en geschikte term te kiezen, is het mijn intentie dat
-        de vertaling dezelfde impact behoudt als de originele tekst.
+        de vertaling <strong>dezelfde impact</strong> behoudt als de originele tekst.
       </p>
     </section>
 
-    <section class="max-w-1200px mx-a mbs-18 grid justify-items-center gap-4 px-4">
-      <h2 class="mbe-4 font-gabarito font-800 text-center text-4xl">Taal combinaties</h2>
+    <section class="container-900 mx-a mbs-18 grid justify-items-center gap-8 px-4">
+      <h2 class="font-gabarito font-800 text-center text-4xl">Taal combinaties</h2>
+
       <TableLanguageCombinations />
 
-      <article class="max-w-800px border-l-6 border-border mt-4 rounded border px-4 py-4 text-sm">
-        <h3 class="font-500 mb-2 inline-flex gap-x-2">
+      <article class="border-l-6 border-border rounded border px-4 py-4 text-sm">
+        <p class="font-500 mb-2 inline-flex gap-x-2">
           <img src={localLogoMemoQ.src} alt="" width={16} height={16} />
            MemoQ translator pro
-        </h3>
+        </p>
+
         <p>
           Ik gebruik de computergestuurde vertaalomgeving <strong>MEMO Q PRO</strong>, een tool
           waarmee ik met een groot aantal documentformaten kan werken en die compatibel is met de
@@ -59,67 +64,84 @@ const t = useTranslations(lang);
       </article>
     </section>
 
-    <section class="max-w-1200px mx-a mbs-18 grid gap-4 px-4">
-      <h2 class="mbe-4 font-gabarito font-800 mbe-2 text-center text-4xl">
+    <section class="container-900 mx-a mbs-18 grid place-items-center gap-8 px-4">
+      <h2 class="font-gabarito font-800 text-center text-4xl">
         Favoriete gebieden, gebaseerd op mijn <br /> persoonlijke en professionele ervaring
       </h2>
 
       <TranslateFieldsList />
 
-      <article class="max-w-800px border-l-6 border-border mt-4 rounded border px-4 py-4 text-sm">
+      <article class="border-l-6 border-border rounded border px-4 py-4 text-sm">
         <p class="mb-2">
           Twijfelt u aan de maakbaarheid van de door u gewenste vertaling? (poëzie, volgehouden
           taal, rijke symboliek van de tekst, specifieke termen, enz.)
         </p>
+
         <p>
           Aarzel dan niet
-          <BaseLink href="#contact">om contact op te nemen of vraag een offerte aan.</BaseLink>
+          <Link href="#contact" intent="text">
+            om contact op te nemen of vraag een offerte aan.
+          </Link>
         </p>
       </article>
     </section>
 
-    <section id="about" class="max-w-1200px mx-a mbs-16 grid gap-y-4 px-4">
-      <h2 class="mbe-4 font-gabarito font-800 text-center text-4xl">De vertaler</h2>
+    <section id="about" class="container-900 mx-a mbs-16 grid gap-y-8 px-4">
+      <h2 class="font-gabarito font-800 text-center text-4xl">De vertaler</h2>
 
-      <p>Freya PALSMA - Gehandicapte freelance professionele vertaler</p>
+      <p class="text-center">Freya PALSMA - Gehandicapte freelance professionele vertaler</p>
 
-      <p class="max-w-800px mx-a">
+      <p>
         Geboren en opgegroeid in Frankrijk, maar van Nederlandse afkomst, ik heb leren vertalen door
         te leren spreken; Frans op school en Nederlands thuis. Vervolgens kreeg ik de kans om
         vloeiend Engels te leren door een jaar van mijn schooltijd in Engeland door te brengen en
         het leren voort te zetten in de internationale sectie op de middelbare school totdat ik mijn
-        baccalauréat (OIB/BFI) behaalde in een internationaal lyceum in Frankrijk. Sindsdien heb ik
-        deze talen kunnen oefenen en verrijken op de werkvloer; ik heb drie jaar in het horeca
-        gewerkt en twee jaar voor een internationale logistieke dienstverlener, met dagelijks
-        contact met BeNeLux-medewerkers en -klanten.
+        baccalauréat (OIB/BFI) behaalde in een internationaal lyceum in Frankrijk.
       </p>
 
-      <p class="max-w-800px mx-a">
+      <p>
+        Sindsdien heb ik deze talen kunnen oefenen en verrijken op de werkvloer; ik heb drie jaar in
+        het horeca gewerkt en twee jaar voor een internationale logistieke dienstverlener, met
+        dagelijks contact met BeNeLux-medewerkers en -klanten.
+      </p>
+
+      <p>
         Als volwassene heb ik een zeldzame neurologische ziekte opgelopen en door de gebrekkige
         informatie en onderzoeken over deze aandoening in het Frans heb ik ontdekt dat een vertaling
         niet alleen de communicatie tussen twee taalgemeenschappen of de internationale handel
         mogelijk maakt, maar vooral het delen van informatie en de verrijking van de persoonlijke
-        cultuur. <br /> Vertalen is voor mij een reflex geworden en het geeft mij veel voldoening om
-        u deze dienst vandaag te kunnen aanbieden.
+        cultuur.
+      </p>
+
+      <p>
+        Vertalen is voor mij een reflex geworden en het geeft mij veel voldoening om u deze dienst
+        vandaag te kunnen aanbieden.
       </p>
     </section>
 
-    <section id="contact" class="max-w-1200px mx-a my-16 grid gap-y-8 px-4">
-      <h2 class="font-gabarito font-800 text-4xl">Contact</h2>
+    <section id="contact" class="container-900 mx-a my-16 grid place-content-center gap-y-8 px-4">
+      <h2 class="font-gabarito font-800 text-center text-4xl">Contact</h2>
 
-      <div class="flex flex-wrap justify-between gap-4">
-        <CopyButton />
+      <div class="flex flex-wrap gap-4">
+        <div class="border-border p3 grid justify-items-center gap-y-4 rounded border">
+          <MailIcon aria-hidden className="h-12 w-12" />
 
-        <BaseLink
-          href="https://www.linkedin.com/in/freya-palsma/"
-          external
-          intent="button-secondary"
-        >
-          <div class="flex items-center gap-x-1">
-            <LinkedInIcon aria-hidden /><span class="text-sm underline">Linkedin</span>
+          <div class="flex items-center justify-between gap-x-4">
+            <p class="font-200 text-xs">Email</p>
+            <CopyButton />
           </div>
-          <ExternalLinkIcon aria-hidden className="w-16px h-16px" />
-        </BaseLink>
+        </div>
+
+        <div class="border-border p3 grid justify-items-center gap-y-4 rounded border">
+          <LinkedInIcon aria-hidden className="h-12 w-12" />
+
+          <div class="flex items-center justify-between gap-x-4">
+            <p class="font-200 text-xs">LinkedIn</p>
+            <IconLink label="linkedin" href="https://www.linkedin.com/in/freya-palsma/" external>
+              <ExternalLinkIcon aria-hidden className="w-16px h-16px" />
+            </IconLink>
+          </div>
+        </div>
       </div>
     </section>
   </main>

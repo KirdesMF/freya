@@ -1,4 +1,4 @@
-import { cva, cx, type VariantProps } from "class-variance-authority";
+import { cva, type VariantProps } from "class-variance-authority";
 import type { ReactNode } from "react";
 
 type BadgeProps = {
@@ -20,9 +20,12 @@ const badge = cva(
         yellow: "bg-yellow/10 text-yellow",
       },
     },
+    defaultVariants: {
+      intent: "primary",
+    },
   },
 );
 
-export function Badge({ children, intent = "primary", className }: BadgeProps) {
-  return <div className={cx(className, badge({ intent }))}>{children}</div>;
+export function Badge({ children, className, intent }: BadgeProps) {
+  return <div className={badge({ className, intent })}>{children}</div>;
 }

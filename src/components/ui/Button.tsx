@@ -1,6 +1,6 @@
-import { cva, cx } from "class-variance-authority";
+import { cva } from "class-variance-authority";
 import { forwardRef } from "react";
-import type { ButtonHTMLAttributes, ReactNode, Ref } from "react";
+import type { ButtonHTMLAttributes, Ref } from "react";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 type ButtonRef = Ref<HTMLButtonElement>;
@@ -13,7 +13,7 @@ export const Button = forwardRef((props: ButtonProps, ref: ButtonRef) => {
   const { children, className, type = "button", ...rest } = props;
 
   return (
-    <button ref={ref} className={cx(className, button())} type={type} {...rest}>
+    <button ref={ref} className={button({ className })} type={type} {...rest}>
       {children}
     </button>
   );

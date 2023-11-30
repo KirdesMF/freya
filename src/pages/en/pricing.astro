@@ -1,39 +1,19 @@
 ---
 import { ArrowRightIcon } from "@components/icons/ArrowRightIcon";
 import { ExternalLinkIcon } from "@components/icons/ExternalLinkIcon";
-import BaseLink from "@components/ui/BaseLink.astro";
-import { getLangFromUrl, useTranslations } from "@i18n/utils";
+import { Badge } from "@components/ui/Badge";
+import { Link } from "@components/ui/Link";
 import BaseLayout from "@layouts/BaseLayout.astro";
-
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
 ---
 
 <BaseLayout title="Brainslate | Prices">
-  <main class="min-h-100dvh mt-xl max-w-1200px mx-a flex flex-col gap-y-4">
-    <section>
-      Trial offer of 5 euros for your first 250 words Use this offer to have a short document
-      translated or simply to have a preview of my work for a possible longer project.
-    </section>
+  <main
+    class="container-900 mx-a pbs-20 flex min-h-[calc(100dvh_-_80px_-_70px)] flex-col gap-y-4 px-6"
+  >
+    <section class="flex flex-col gap-y-2">
+      <h1 class="font-gabarito font-800 mbe-4 text-4xl">Pricing</h1>
 
-    <section>
-      <h2 class="font-gabarito font-800 text-2xl">My Availabilities</h2>
-
-      <ul>
-        <li class="flex items-baseline gap-x-2">
-          <span><ArrowRightIcon /></span>Quotation response within 6 hours guaranteed (from 8am to
-          6pm on weekdays)
-        </li>
-        <li class="flex items-baseline gap-x-2">
-          <span><ArrowRightIcon /></span>Express delivery in 72 hours up to 1600 words (subject to
-          availability/excluding trial offer)
-        </li>
-      </ul>
-    </section>
-
-    <section class="flex flex-col">
-      <h2 class="font-gabarito font-800 text-2xl">Pricing</h2>
-      <p class="mb-2">
+      <p>
         The determination of rates depends on the level of technicality and complexity of the text,
         as well as the language combination. Translations are charged on a per-word basis (0.10 to
         0.20 euros/word), the invoice is then adjusted according to the working time and the
@@ -41,19 +21,47 @@ const t = useTranslations(lang);
         project's feasibility!
       </p>
 
-      <p class="mb-2">
+      <p>
         I am a self-employed disabled person: In France, there are agreements for companies on the
         employment of persons with disabilities. For more information:
-        <BaseLink
+        <Link
+          intent="text"
           href="https://www.agefiph.fr/employeur#linclusion-de-personnes-handicapees-une-opportunite-rh-a-saisir"
           external
         >
-          https://www.agefiph.fr/employeur#linclusion-de-personnes-handicapees-une-opportunite-rh-a-saisir
-
-
-          <span><ExternalLinkIcon aria-hidden /></span>
-        </BaseLink>
+          click here
+          <ExternalLinkIcon aria-hidden />
+        </Link>
       </p>
+    </section>
+
+    <article class="border-l-6 border-border grid gap-2 rounded border px-4 py-4 text-sm">
+      <div class="flex items-center gap-x-2">
+        <Badge intent="green">TRIAL</Badge>
+        <p class="font-600">Trial offer of 5 euros for your first 250 words</p>
+      </div>
+
+      <p>
+        Use this offer to have a short document translated or simply to have a preview of my work
+        for a possible longer project.
+      </p>
+    </article>
+
+    <section class="mbs-12 flex flex-col gap-y-2">
+      <h2 class="font-gabarito font-800 mbe-4 text-4xl">My Availabilities</h2>
+
+      <ul>
+        <li class="flex items-baseline gap-x-2">
+          <ArrowRightIcon /> Quotation response within 6 hours guaranteed (from 8am to 6pm on
+          weekdays)
+        </li>
+
+        <li class="flex items-baseline gap-x-2">
+          <ArrowRightIcon />
+           Express delivery in 72 hours up to 1600 words (subject to availability/excluding trial
+          offer)
+        </li>
+      </ul>
     </section>
   </main>
 </BaseLayout>

@@ -9,9 +9,10 @@ import localLogoMemoQ from "../images/logo-q.svg";
 import { ExternalLinkIcon } from "@components/icons/ExternalLinkIcon";
 import { DoubleChevronRightIcon } from "@components/icons/DoubleChevronRightIcon";
 import { LinkedInIcon } from "@components/icons/LinkedinIcon";
-import { ButtonLink } from "@components/ui/ButtonLink";
 import { Link } from "@components/ui/Link";
 import { Badge } from "@components/ui/Badge";
+import { IconLink } from "@components/ui/IconLink";
+import { MailIcon } from "@components/icons/MailIcon";
 ---
 
 <BaseLayout>
@@ -25,17 +26,17 @@ import { Badge } from "@components/ui/Badge";
         <Badge intent="orange">Néerlandais</Badge>
       </div>
 
-      <ButtonLink intent="primary">
+      <Link intent="primary-btn" href="#contact">
         <span>Contact</span>
         <DoubleChevronRightIcon aria-hidden />
-      </ButtonLink>
+      </Link>
     </section>
 
     <TrialBanner />
 
-    <section class="container-1200 mx-a mbs-18 px-4">
+    <section class="container-900 mx-a mbs-18 px-4 text-center">
       <h2 class="font-gabarito font-800 mbe-4 text-4xl">
-        L'objectif de mes traductions <br /> est qu'elles soient fluides et fidèles
+        L'objectif de mes traductions <br /> est qu'elles soient fluides et fidèles.
       </h2>
 
       <p>
@@ -45,8 +46,8 @@ import { Badge } from "@components/ui/Badge";
       </p>
     </section>
 
-    <section class="container-1200 mx-a mbs-18 grid justify-items-center gap-4 px-4">
-      <h2 class="font-gabarito font-800 mbe-4 text-center text-4xl">Combinaisons linguistiques</h2>
+    <section class="container-900 mx-a mbs-18 grid justify-items-center gap-8 px-4">
+      <h2 class="font-gabarito font-800 text-center text-4xl">Combinaisons linguistiques</h2>
 
       <TableLanguageCombinations />
 
@@ -65,8 +66,8 @@ import { Badge } from "@components/ui/Badge";
       </article>
     </section>
 
-    <section class="container-1200 mx-a mbs-18 grid gap-4 px-4">
-      <h2 class="font-gabarito font-800 text-4xl">
+    <section class="container-900 mx-a mbs-18 grid place-items-center gap-8 px-4">
+      <h2 class="font-gabarito font-800 text-center text-4xl">
         Domaines de prédilection basés <br /> sur mon expérience personnelle et professionnelle
       </h2>
 
@@ -80,15 +81,15 @@ import { Badge } from "@components/ui/Badge";
 
         <p>
           N'hésitez pas à
-          <Link href="#contact">prendre contact ou demander un devis.</Link>
+          <Link href="#contact" intent="text">prendre contact ou demander un devis.</Link>
         </p>
       </article>
     </section>
 
-    <section id="about" class="container-1200 mx-a mbs-16 grid gap-y-4 px-4">
-      <h2 class="font-gabarito font-800 text-4xl">A propos du traducteur</h2>
+    <section id="about" class="container-900 mx-a mbs-16 grid gap-y-8 px-4">
+      <h2 class="font-gabarito font-800 text-center text-4xl">A propos du traducteur</h2>
 
-      <p>Freya PALSMA - Traducteur professionnel indépendant handicapé (TIH)</p>
+      <p class="text-center">Freya PALSMA - Traducteur professionnel indépendant handicapé (TIH)</p>
 
       <p>
         Née et éduquée en France mais d'origine néerlandaise, j'ai appris à traduire en apprenant à
@@ -119,17 +120,29 @@ import { Badge } from "@components/ui/Badge";
       </p>
     </section>
 
-    <section id="contact" class="container-1200 mx-a my-16 grid gap-y-8 px-4">
-      <h2 class="font-gabarito font-800 text-4xl">Contact</h2>
+    <section id="contact" class="container-900 mx-a my-16 grid place-content-center gap-y-8 px-4">
+      <h2 class="font-gabarito font-800 text-center text-4xl">Contact</h2>
 
-      <div class="flex flex-wrap justify-between gap-4">
-        <CopyButton />
+      <div class="flex flex-wrap gap-4">
+        <div class="border-border p3 grid justify-items-center gap-y-4 rounded border">
+          <MailIcon aria-hidden className="h-12 w-12" />
 
-        <ButtonLink href="https://www.linkedin.com/in/freya-palsma/" external>
-          <LinkedInIcon aria-hidden />
-          <span>Linkedin</span>
-          <ExternalLinkIcon aria-hidden className="w-16px h-16px" />
-        </ButtonLink>
+          <div class="flex items-center justify-between gap-x-4">
+            <p class="font-200 text-xs">Email</p>
+            <CopyButton />
+          </div>
+        </div>
+
+        <div class="border-border p3 grid justify-items-center gap-y-4 rounded border">
+          <LinkedInIcon aria-hidden className="h-12 w-12" />
+
+          <div class="flex items-center justify-between gap-x-4">
+            <p class="font-200 text-xs">LinkedIn</p>
+            <IconLink label="linkedin" href="https://www.linkedin.com/in/freya-palsma/" external>
+              <ExternalLinkIcon aria-hidden className="w-16px h-16px" />
+            </IconLink>
+          </div>
+        </div>
       </div>
     </section>
   </main>

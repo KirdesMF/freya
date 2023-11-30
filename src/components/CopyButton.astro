@@ -1,23 +1,20 @@
 ---
 import { getLangFromUrl, useTranslations } from "@i18n/utils";
 import { CopyIcon } from "./icons/CopyIcon";
-import { MailIcon } from "./icons/MailIcon";
-import { Button } from "./ui/Button";
+import { IconButton } from "./ui/IconButton";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
 <div class="relative">
-  <Button id="copy-btn">
-    <MailIcon aria-hidden className="w-16px h-16px" />
-    <span class="text-sm">brainslate@outlook.fr</span>
-    <CopyIcon aria-hidden className="w-16px h-16px" />
-  </Button>
+  <IconButton id="copy-btn" label="copy email address">
+    <CopyIcon className="w-16px h-16px" />
+  </IconButton>
 
   <p
     id="pop-up"
-    class="left-50% border-muted font-300 absolute top-[calc(100%+8px)] translate-x-[-50%] whitespace-nowrap rounded border px-2 py-1 text-xs opacity-0 transition-opacity data-[visible=true]:opacity-100"
+    class="left-50% border-border bg-background font-300 absolute top-[calc(100%+8px)] translate-x-[-50%] whitespace-nowrap rounded border px-2 py-1 text-xs opacity-0 transition-opacity data-[visible=true]:opacity-100"
   >
     {t("clipboard")}
   </p>

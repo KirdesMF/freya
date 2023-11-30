@@ -1,40 +1,17 @@
 ---
 import { ArrowRightIcon } from "@components/icons/ArrowRightIcon";
 import { ExternalLinkIcon } from "@components/icons/ExternalLinkIcon";
-import BaseLink from "@components/ui/BaseLink.astro";
-import { getLangFromUrl, useTranslations } from "@i18n/utils";
+import { Badge } from "@components/ui/Badge";
+import { Link } from "@components/ui/Link";
 import BaseLayout from "@layouts/BaseLayout.astro";
-
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
 ---
 
-<BaseLayout title="Brainslate | Prices">
-  <main class="min-h-100dvh mt-xl max-w-1200px mx-a flex flex-col gap-y-4">
-    <section>
-      5 euros proefaanbieding voor uw eerste 250 woorden Profiteer van deze aanbieding om een kort
-      document te laten vertalen of simpelweg om een voorproefje van mijn werk te zien voor een
-      mogelijk langer project.
-    </section>
-
+<BaseLayout title="Brainslate | Prijzen">
+  <main
+    class="container-900 mx-a pbs-20 flex min-h-[calc(100dvh_-_80px_-_70px)] flex-col gap-y-4 px-6"
+  >
     <section class="flex flex-col gap-y-2">
-      <h2 class="font-gabarito font-800 text-2xl">Mijn beschikbaarheid</h2>
-
-      <ul>
-        <li class="flex items-baseline gap-x-2">
-          <span><ArrowRightIcon /></span>
-           Gegarandeerd antwoord op offerte binnen 6 uur (van 8 tot 18 uur op werkdagen)
-        </li>
-        <li class="flex items-baseline gap-x-2">
-          <span><ArrowRightIcon /></span>
-           Expresslevering binnen 72 uur tot 1600 woorden (afhankelijk van
-          beschikbaarheid/uitgezonderd proefaanbieding)
-        </li>
-      </ul>
-    </section>
-
-    <section class="flex flex-col gap-y-2">
-      <h2 class="font-gabarito font-800 text-2xl">Tarieven</h2>
+      <h1 class="font-gabarito font-800 mbe-4 text-4xl">Tarieven</h1>
 
       <p>
         Tarieven zijn afhankelijk van de techniciteit en complexiteit van de tekst en de
@@ -47,16 +24,44 @@ const t = useTranslations(lang);
       <p>
         Ik ben een gehandicapte zelfstandige: Er bestaan in Frankrijk een aantal regelingen om
         bedrijven te helpen gehandicapten in dienst te nemen. Voor meer informatie:
-        <BaseLink
+        <Link
+          intent="text"
           href="https://www.agefiph.fr/employeur#linclusion-de-personnes-handicapees-une-opportunite-rh-a-saisir"
           external
         >
-          https://www.agefiph.fr/employeur#linclusion-de-personnes-handicapees-une-opportunite-rh-a-saisir
-
-
-          <span><ExternalLinkIcon aria-hidden /></span>
-        </BaseLink>
+          clik hier
+          <ExternalLinkIcon aria-hidden />
+        </Link>
       </p>
+    </section>
+
+    <article class="border-l-6 border-border grid gap-2 rounded border px-4 py-4 text-sm">
+      <div class="flex items-center gap-x-2">
+        <Badge intent="green">OFFRE</Badge>
+        <p class="font-600">5 euros proefaanbieding voor uw eerste 250 woorden.</p>
+      </div>
+
+      <p>
+        Profiteer van deze aanbieding om een kort document te laten vertalen of simpelweg om een
+        voorproefje van mijn werk te zien voor een mogelijk langer project.
+      </p>
+    </article>
+
+    <section class="mbs-12 flex flex-col gap-y-2">
+      <h2 class="font-gabarito font-800 mbe-4 text-4xl">Mijn beschikbaarheid</h2>
+
+      <ul>
+        <li class="flex items-baseline gap-x-2">
+          <ArrowRightIcon /> Gegarandeerd antwoord op offerte binnen 6 uur (van 8 tot 18 uur op
+          werkdagen)
+        </li>
+
+        <li class="flex items-baseline gap-x-2">
+          <ArrowRightIcon />
+           Expresslevering binnen 72 uur tot 1600 woorden (afhankelijk van
+          beschikbaarheid/uitgezonderd proefaanbieding)
+        </li>
+      </ul>
     </section>
   </main>
 </BaseLayout>

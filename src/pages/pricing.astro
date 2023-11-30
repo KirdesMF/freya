@@ -1,17 +1,15 @@
 ---
+import BaseLayout from "@layouts/BaseLayout.astro";
 import { ArrowRightIcon } from "@components/icons/ArrowRightIcon";
 import { ExternalLinkIcon } from "@components/icons/ExternalLinkIcon";
 import { Badge } from "@components/ui/Badge";
 import { Link } from "@components/ui/Link";
-import { getLangFromUrl, useTranslations } from "@i18n/utils";
-import BaseLayout from "@layouts/BaseLayout.astro";
-
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
 ---
 
-<BaseLayout title="Brainslate | Prices">
-  <main class="container-900 mx-a pbs-20 flex min-h-[calc(100dvh_-_80px_-_70px)] flex-col gap-y-4">
+<BaseLayout title="Brainslate | Tarifs">
+  <main
+    class="container-900 mx-a pbs-20 flex min-h-[calc(100dvh_-_80px_-_70px)] flex-col gap-y-4 px-6"
+  >
     <section class="flex flex-col gap-y-2">
       <h1 class="font-gabarito font-800 mbe-4 text-4xl">Tarifs</h1>
 
@@ -27,6 +25,7 @@ const t = useTranslations(lang);
         Je suis travailleur indépendant handicapé (TIH): Des dispositifs facilitant l'emploi des
         personnes en situation de handicap existent pour les entreprises. Plus d'informations:
         <Link
+          intent="text"
           href="https://www.agefiph.fr/employeur#linclusion-de-personnes-handicapees-une-opportunite-rh-a-saisir"
           external
         >
@@ -37,14 +36,15 @@ const t = useTranslations(lang);
     </section>
 
     <article class="border-l-6 border-border grid gap-2 rounded border px-4 py-4 text-sm">
-      <p>Offre d'essai à 5 euros pour vos 250 premiers mots.</p>
+      <div class="flex items-center gap-x-2">
+        <Badge intent="green">OFFRE</Badge>
+        <p class="font-600">Offre d'essai à 5 euros pour vos 250 premiers mots.</p>
+      </div>
 
       <p>
         Profitez de cette offre pour faire traduire un document court ou pour tout simplement avoir
         un aperçu du rendu de mon travail pour un eventuel projet plus long.
       </p>
-
-      <Badge intent="green">Offre</Badge>
     </article>
 
     <section class="mbs-12 flex flex-col gap-y-2">

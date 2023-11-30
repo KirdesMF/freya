@@ -2,7 +2,7 @@
 import { getLangFromUrl, useTranslatedPath, useTranslations } from "@i18n/utils";
 import { SelectLanguage } from "./SelectLanguage";
 import { ToggleMode } from "./ToggleMode.tsx";
-import { MenuBurgerIcon } from "./icons/MenuBurgerIcon";
+import { MenuMobile } from "./MenuMobile";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -27,9 +27,9 @@ const LINKS = [
         Brainslate
       </a>
 
-      <div class="bg-primary w-1px h-full" role="separator"></div>
+      <div class="bg-primary w-1px hidden h-full md:block" role="separator"></div>
 
-      <div class="gap-x-sm flex items-center">
+      <div class="gap-x-sm hidden items-center md:flex">
         {
           LINKS.map(({ href, label }) => (
             <a href={translatePath(href)} class="text-foreground hover:text-primary text-sm">
@@ -40,7 +40,11 @@ const LINKS = [
       </div>
     </div>
 
-    <div class="gap-x-sm flex items-center">
+    <div class="flex items-center md:hidden">
+      <MenuMobile client:only />
+    </div>
+
+    <div class="gap-x-sm hidden items-center md:flex">
       <ToggleMode client:load />
       <SelectLanguage client:only />
     </div>
